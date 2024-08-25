@@ -187,6 +187,7 @@ const mostrarInicioSesion = () => {
                   <div class="flex justify-center items-center">
                     <label class="mr-2">¿Eres nuevo?</label>
                     <a
+                    href=#
                       class="text-blue-500 transition duration-500 ease-in-out transform hover:-translate-x hover:scale-105"
                       id = "crear_cuenta_cambio"
                     >
