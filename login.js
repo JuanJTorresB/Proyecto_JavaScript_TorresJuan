@@ -119,12 +119,13 @@ const mostrarRegistro = () => {
       let emailRegistrado = await gmailRegistered(email_register.value)
       if(!emailRegistrado){
         await registerUser(email_register.value, password_register.value, nombres_register.value, apellidos_register.value)
-        console.log(password_register.value);
-        console.log(password_register_confirmar.value);
-        console.log(remember_me_register.checked);
+        form_inicial.classList.toggle("hidden", true)
         if(remember_me_register.checked){
           let id = await gmailRegisteredToId(email_register.value)
           localStorage.setItem("credentials", `${id}`)
+        } else {
+          let id = await gmailRegisteredToId(email_register.value)
+          sessionStorage.setItem("credentials", `${id}`)
         }
       } else {
         alert("El Email ya esta Registrado")
@@ -221,12 +222,13 @@ const mostrarInicioSesion = () => {
     let emailRegistrado = await gmailRegistered(correo_login.value)
     if (emailRegistrado){
       if (await gmailRegisteredToPassword(correo_login.value) == password_login.value){
-        console.log(correo_login.value);
-        console.log(password_login.value);
-        console.log(remember_login.checked);
+        form_inicial.classList.toggle("hidden", true)
         if(remember_login.checked){
           let id = await gmailRegisteredToId(correo_login.value)
           localStorage.setItem("credentials", `${id}`)
+        } else {
+          let id = await gmailRegisteredToId(correo_login.value)
+          sessionStorage.setItem("credentials", `${id}`)
         }
       } else {
         alert("Contraseña Incorrecta")
@@ -237,8 +239,6 @@ const mostrarInicioSesion = () => {
   });
   crear_cuenta_cambio.addEventListener("click", mostrarRegistro);
 };
-
-mostrarInicioSesion();
 
 // Consulta a la api
 
@@ -325,3 +325,13 @@ const addUser = async (newUser) => {
 //Setear a un string vació Credenciales en caso de no tener activadas en el momento
 
 localStorage.setItem("credentials", localStorage.getItem("credentials")??"")
+
+sessionStorage.setItem("credentials", sessionStorage.getItem("credentials")??"")
+
+if(sessionStorage.getItem("credentials")!==""){
+  //Mostrar Pagina según Session ID
+} else if(localStorage.getItem("credentials")!==""){
+  //Mostrar Pagina según Local ID
+}else{
+  mostrarInicioSesion();
+}
