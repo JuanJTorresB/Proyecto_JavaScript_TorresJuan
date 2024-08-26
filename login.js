@@ -28,7 +28,7 @@ const mostrarRegistro = () => {
                     id="nombres_register"
                       type="text"
                       placeholder="   Nombres"
-                      class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                      class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 pl-4 invalid:text-pink-600"
                     />
                   </div>
                   <div class="mt-7">
@@ -37,7 +37,7 @@ const mostrarRegistro = () => {
                     id="apellidos_register"
                     type="text"
                       placeholder="   Apellidos"
-                      class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                      class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 pl-4 invalid:text-pink-600"
                     />
                   </div>
                 <div class="mt-7">
@@ -46,7 +46,7 @@ const mostrarRegistro = () => {
                     id="email_register"
                     type="email"
                     placeholder="   Correo electrónico"
-                    class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                    class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 pl-4 invalid:text-pink-600"
                   />
                 </div>
                 <div class="mt-7">
@@ -55,7 +55,7 @@ const mostrarRegistro = () => {
                     id="password_register"
                     type="password"
                     placeholder="   Contraseña"
-                    class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                    class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 pl-4 invalid:text-pink-600"
                   />
                 </div>
                 <div class="mt-7">
@@ -64,7 +64,7 @@ const mostrarRegistro = () => {
                     id="password_register_confirmar"
                     type="password"
                       placeholder="   Confirmar Contraseña"
-                      class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                      class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 pl-4 invalid:text-pink-600"
                     />
                   </div>
 
@@ -163,7 +163,7 @@ const mostrarInicioSesion = () => {
                   id="correo_login"
                     type="email"
                     placeholder="   Correo electrónico"
-                    class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                    class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 invalid:text-pink-600"
                   />
                 </div>
 
@@ -173,7 +173,7 @@ const mostrarInicioSesion = () => {
                   id="password_login"
                   type="password"
                     placeholder="   Contraseña"
-                    class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0"
+                    class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 invalid:text-pink-600"
                   />
                 </div>
 
