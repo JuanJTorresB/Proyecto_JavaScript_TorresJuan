@@ -1,5 +1,9 @@
 // Lógica de Cambio de Inicio de Sesión A Registro y Viceversa Front
 
+const dashboard = document.getElementById("dashboard")
+
+const main = document.getElementById("main")
+
 const form_inicial = document.getElementById("form_inicial");
 
 const mostrarRegistro = () => {
@@ -113,14 +117,16 @@ const mostrarRegistro = () => {
   );
   const remember_me_register = document.getElementById("remember_me_register");
   const inicio_sesion_cambio = document.getElementById("inicio_sesion_cambio");
-  form_register.addEventListener("submit", async(event) => {
+  form_register.addEventListener("submit", async (event) => {
     event.preventDefault();
-    if (password_register.value === password_register_confirmar.value){
+    if (password_register.value === password_register_confirmar.value) {
       let emailRegistrado = await gmailRegistered(email_register.value)
-      if(!emailRegistrado){
+      if (!emailRegistrado) {
         await registerUser(email_register.value, password_register.value, nombres_register.value, apellidos_register.value)
         form_inicial.classList.toggle("hidden", true)
-        if(remember_me_register.checked){
+        main.classList.toggle("hidden", false)
+        dashboard.classList.toggle("hidden", false)
+        if (remember_me_register.checked) {
           let id = await gmailRegisteredToId(email_register.value)
           localStorage.setItem("credentials", `${id}`)
         } else {
@@ -217,13 +223,15 @@ const mostrarInicioSesion = () => {
   const password_login = document.getElementById("password_login");
   const remember_login = document.getElementById("remember_login");
   const crear_cuenta_cambio = document.getElementById("crear_cuenta_cambio");
-  form_login.addEventListener("submit", async(event) => {
+  form_login.addEventListener("submit", async (event) => {
     event.preventDefault();
     let emailRegistrado = await gmailRegistered(correo_login.value)
-    if (emailRegistrado){
-      if (await gmailRegisteredToPassword(correo_login.value) == password_login.value){
+    if (emailRegistrado) {
+      if (await gmailRegisteredToPassword(correo_login.value) == password_login.value) {
         form_inicial.classList.toggle("hidden", true)
-        if(remember_login.checked){
+        main.classList.toggle("hidden", false)
+        dashboard.classList.toggle("hidden", false)
+        if (remember_login.checked) {
           let id = await gmailRegisteredToId(correo_login.value)
           localStorage.setItem("credentials", `${id}`)
         } else {
@@ -262,8 +270,8 @@ const gmailRegistered = async (userEmailParaConfirmar) => {
     method: "GET",
     headers: { "content-type": "application/json" }
   });
-  for (user of resultadoUsers){
-    if (user.correo == userEmailParaConfirmar){
+  for (user of resultadoUsers) {
+    if (user.correo == userEmailParaConfirmar) {
       return true
     }
   }
@@ -275,8 +283,8 @@ const gmailRegisteredToId = async (userEmailParaId) => {
     method: "GET",
     headers: { "content-type": "application/json" }
   });
-  for (user of resultadoUsers){
-    if (user.correo == userEmailParaId){
+  for (user of resultadoUsers) {
+    if (user.correo == userEmailParaId) {
       return user.id
     }
   }
@@ -288,15 +296,15 @@ const gmailRegisteredToPassword = async (userEmailParaPassword) => {
     method: "GET",
     headers: { "content-type": "application/json" }
   });
-  for (user of resultadoUsers){
-    if (user.correo == userEmailParaPassword){
+  for (user of resultadoUsers) {
+    if (user.correo == userEmailParaPassword) {
       return user.contrasenia
     }
   }
   return "-1"
 };
 
-const registerUser = async(Correo, Password, Nombre, Apellidos) => {
+const registerUser = async (Correo, Password, Nombre, Apellidos) => {
   let newUser = {
     correo: Correo,
     contrasenia: Password,
@@ -324,14 +332,19 @@ const addUser = async (newUser) => {
 
 //Setear a un string vació Credenciales en caso de no tener activadas en el momento
 
-localStorage.setItem("credentials", localStorage.getItem("credentials")??"")
+localStorage.setItem("credentials", localStorage.getItem("credentials") ?? "")
 
-sessionStorage.setItem("credentials", sessionStorage.getItem("credentials")??"")
+sessionStorage.setItem("credentials", sessionStorage.getItem("credentials") ?? "")
 
-if(sessionStorage.getItem("credentials")!==""){
+if (sessionStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Session ID
-} else if(localStorage.getItem("credentials")!==""){
+  main.classList.toggle("hidden", false)
+  dashboard.classList.toggle("hidden", false)
+} else if (localStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Local ID
-}else{
+  main.classList.toggle("hidden", false)
+  dashboard.classList.toggle("hidden", false)
+} else {
   mostrarInicioSesion();
+  console.log("Hola")
 }
