@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" /> 
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="login.js"></script>
     <script defer src="CRUD.js"></script>
@@ -314,6 +314,7 @@
       >
         <button
           class="bg-yellow-200 w-64 h-16 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+          id="boton_crear_recuros"
         >
           Crear
         </button>
@@ -321,8 +322,7 @@
       <section id="filtros-secciones">
         <section
           class="mt-8 w-full pl-8 flex flex-wrap gap-x-4"
-          id="en-progreso"
-        >
+          id="en-progreso">
           <h5 class="poppins-medium text-medium flex w-full mb-8">
             <svg
               class="w-6 h-6 mr-4 fill-lime-300"
@@ -332,152 +332,6 @@
               <circle cx="11.6428" cy="11" r="11" /></svg
             >En Progreso
           </h5>
-          <figure class="flex gap-x-4 p-4 border-2 rounded-xl">
-            <img
-              id="Img_recurso"
-              class="w-32"
-              src="https://www.penguinlibros.com/co/3117351/en-agosto-nos-vemos.jpg"
-              alt="En Agosto Nos Vemos"
-            />
-            <figcaption class="h-full gap-y-2 flex flex-col">
-              <h6 id="Titulo_recurso" class="poppins-medium">
-                En Agosto Nos Vemos
-              </h6>
-              <section id="Estado_recurso">
-                <h5 class="poppins-medium text-sm flex w-full">
-                  <figure>
-                    <svg
-                      class="w-4 h-4 mr-2 fill-lime-300"
-                      viewBox="0 0 23 22"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle cx="11.6428" cy="11" r="11" />
-                    </svg>
-                  </figure>
-                  En Progreso
-                </h5>
-              </section>
-              <section id="Tags_recurso">
-                <h5 class="poppins-medium text-sm flex w-full">
-                  <figure>
-                    <svg
-                      class="w-4 h-4 mr-2 mt-1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
-                    >
-                      <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                      <path
-                        d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128l95.1 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0L325.8 320l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7-95.1 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384 32 384c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 21.3-128L64 192c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320l95.1 0 21.3-128-95.1 0z"
-                      />
-                    </svg>
-                  </figure>
-                  <ul>
-                    <li class="bg-fuchsia-300 px-1 rounded-lg my-1">
-                      Realismo Mágico
-                    </li>
-                    <li class="bg-cyan-300 px-1 rounded-lg w-fit my-1">
-                      Drama
-                    </li>
-                    <li class="bg-red-300 px-1 rounded-lg w-fit my-1">
-                      Romance
-                    </li>
-                  </ul>
-                </h5>
-              </section>
-              <section id="Plataforma_recurso">
-                <h5 class="poppins-medium text-sm flex w-full">
-                  <figure>
-                    <svg
-                      class="w-4 h-4 mr-2 mt-1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
-                    >
-                      <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                      <path
-                        d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"
-                      />
-                    </svg>
-                  </figure>
-                  <ul>
-                    <li class="bg-yellow-400 px-1 rounded-lg my-1">Kindle</li>
-                  </ul>
-                </h5>
-              </section>
-            </figcaption>
-          </figure>
-          <figure class="flex gap-x-4 p-4 border-2 rounded-xl">
-            <img
-              id="Img_recurso"
-              class="w-32"
-              src="https://www.penguinlibros.com/co/3117351/en-agosto-nos-vemos.jpg"
-              alt="En Agosto Nos Vemos"
-            />
-            <figcaption class="h-full gap-y-2 flex flex-col">
-              <h6 id="Titulo_recurso" class="poppins-medium">
-                En Agosto Nos Vemos
-              </h6>
-              <section id="Estado_recurso">
-                <h5 class="poppins-medium text-sm flex w-full">
-                  <figure>
-                    <svg
-                      class="w-4 h-4 mr-2 fill-lime-300"
-                      viewBox="0 0 23 22"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle cx="11.6428" cy="11" r="11" />
-                    </svg>
-                  </figure>
-                  En Progreso
-                </h5>
-              </section>
-              <section id="Tags_recurso">
-                <h5 class="poppins-medium text-sm flex w-full">
-                  <figure>
-                    <svg
-                      class="w-4 h-4 mr-2 mt-1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512"
-                    >
-                      <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                      <path
-                        d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128l95.1 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0L325.8 320l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7-95.1 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384 32 384c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 21.3-128L64 192c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320l95.1 0 21.3-128-95.1 0z"
-                      />
-                    </svg>
-                  </figure>
-                  <ul>
-                    <li class="bg-fuchsia-300 px-1 rounded-lg my-1">
-                      Realismo Mágico
-                    </li>
-                    <li class="bg-cyan-300 px-1 rounded-lg w-fit my-1">
-                      Drama
-                    </li>
-                    <li class="bg-red-300 px-1 rounded-lg w-fit my-1">
-                      Romance
-                    </li>
-                  </ul>
-                </h5>
-              </section>
-              <section id="Plataforma_recurso">
-                <h5 class="poppins-medium text-sm flex w-full">
-                  <figure>
-                    <svg
-                      class="w-4 h-4 mr-2 mt-1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 512 512"
-                    >
-                      <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                      <path
-                        d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"
-                      />
-                    </svg>
-                  </figure>
-                  <ul>
-                    <li class="bg-yellow-400 px-1 rounded-lg my-1">Kindle</li>
-                  </ul>
-                </h5>
-              </section>
-            </figcaption>
-          </figure>
         </section>
         <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4" id="pendiente">
           <h5 class="poppins-medium text-medium flex w-full mb-8">
@@ -650,47 +504,52 @@
       </section>
       <div
         role="dialog"
-        class="z-50 fixed top-0 w-full h-screen w-screen bg-slate-500/50 grid justify-center items-center "
+        class="z-50 fixed top-0 w-full h-screen w-screen bg-slate-500/50 grid justify-center items-center invisible"
+        id="dialog_crear_recurso"
       >
         <form
           action=""
           class="poppins-medium flex flex-col bg-white w-9/12 h-5/6 p-8 rounded-lg gap-y-2 overflow-auto xl:m-0 mx-auto"
+          id="formCrearRecurso"
         >
-          <input required type="text" placeholder="Nombre del Recurso" />
-          <input required type="url" placeholder="Url Portada" />
+          <input required type="text" placeholder="Nombre del Recurso" id="form_nombre_recurso"/>
+          <input required type="url" placeholder="Url Portada" id="url_recurso"/>
           <section>
             <h6>Formato:</h6>
             <label
               class="inline-flex items-center mt-3 items-center bg-emerald-400 p-1 rounded-lg"
               for="Libro"
               >Libro
-              <input
+              <input required
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-400 checked:bg-white checked:before:bg-emerald-400 hover:before:opacity-10 ml-1"
                 type="radio"
                 name="formato"
                 id="Libro"
+                value="Libro"
               />
             </label>
             <label
               class="inline-flex items-center mt-3 items-center bg-violet-400 p-1 rounded-lg"
               for="Serie"
               >Serie
-              <input
+              <input required
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-violet-400 checked:bg-white checked:before:bg-violet-400 hover:before:opacity-10 ml-1"
                 type="radio"
                 name="formato"
                 id="Serie"
+                value="Serie"
               />
             </label>
             <label
               class="inline-flex items-center mt-3 items-center bg-rose-400 p-1 rounded-lg"
               for="Película"
               >Película
-              <input
+              <input required
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rose-400 checked:bg-white checked:before:bg-rose-400 hover:before:opacity-10 ml-1"
                 type="radio"
                 name="formato"
                 id="Película"
+                value="Película"
               />
             </label>
           </section>
@@ -703,8 +562,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-300 checked:bg-white checked:before:bg-orange-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Accion"
+                name="generos"
                 id="Accion"
+                value="Accion"
             /></label>
 
             <label
@@ -714,8 +574,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Comedia"
+                name="generos"
                 id="Comedia"
+                value="Comedia"
             /></label>
             <label
               class="inline-flex items-center mt-3 bg-red-300 p-1 rounded-lg"
@@ -724,8 +585,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Drama"
+                name="generos"
                 id="Drama"
+                value="Drama"
             /></label>
 
             <label
@@ -735,8 +597,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple-300 checked:bg-white checked:before:bg-purple-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Terror"
+                name="generos"
                 id="Terror"
+                value="Terror"
             /></label>
 
             <label
@@ -746,8 +609,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-300 checked:bg-white checked:before:bg-green-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="CienciaFiccion"
+                name="generos"
                 id="CienciaFiccion"
+                value="CienciaFiccion"
             /></label>
 
             <label
@@ -757,8 +621,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-300 checked:bg-white checked:before:bg-sky-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Aventura"
+                name="generos"
                 id="Aventura"
+                value="Aventura"
             /></label>
 
             <label
@@ -768,8 +633,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-indigo-300 checked:bg-white checked:before:bg-indigo-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Fantasia"
+                name="generos"
                 id="Fantasia"
+                value="Fantasia"
             /></label>
 
             <label
@@ -779,8 +645,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-300 checked:bg-white checked:before:bg-pink-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Romance"
+                name="generos"
                 id="Romance"
+                value="Romance"
             /></label>
 
             <label
@@ -790,8 +657,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-300 checked:bg-white checked:before:bg-emerald-500 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Thriller"
+                name="generos"
                 id="Thriller"
+                value="Thriller"
             /></label>
 
             <label
@@ -801,8 +669,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Suspense"
+                name="generos"
                 id="Suspense"
+                value="Suspense"
             /></label>
 
             <label
@@ -812,8 +681,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-zinc-300 checked:bg-white checked:before:bg-zinc-300 hover:before:opacity-20 ml-1"
                 type="checkbox"
-                name="Western"
+                name="generos"
                 id="Western"
+                value="Western"
             /></label>
           </section>
           <section>
@@ -828,6 +698,7 @@
                 type="checkbox"
                 name="Plataforma_Peli_Serie"
                 id="Netflix"
+                value="Netflix"
               />
             </label>
 
@@ -841,6 +712,7 @@
                 type="checkbox"
                 name="Plataforma_Peli_Serie"
                 id="AmazonPrime"
+                value="AmazonPrime"
               />
             </label>
 
@@ -854,6 +726,7 @@
                 type="checkbox"
                 name="Plataforma_Peli_Serie"
                 id="DisneyPlus"
+                value="DisneyPlus"
               />
             </label>
 
@@ -867,6 +740,7 @@
                 type="checkbox"
                 name="Plataforma_Peli_Serie"
                 id="HBOMax"
+                name="HBOMax"
               />
             </label>
 
@@ -880,6 +754,7 @@
                 type="checkbox"
                 name="Plataforma_Peli_Serie"
                 id="AppleTVPlus"
+                value="AppleTVPlus"
               />
             </label>
 
@@ -891,6 +766,7 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-500 checked:bg-white checked:before:bg-green-500 hover:before:opacity-10 ml-1"
                 type="checkbox"
+                value="Hulu"
                 name="Plataforma_Peli_Serie"
                 id="Hulu"
               />
@@ -905,12 +781,13 @@
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-500 checked:bg-white checked:before:bg-sky-500 hover:before:opacity-10 ml-1"
                 type="checkbox"
                 name="Plataforma_Peli_Serie"
+                value="ParamountPlus"
                 id="ParamountPlus"
               />
             </label>
           </section>
           <section>
-            <h6>Plataformas:</h6>
+            <h6>Plataformas Libros:</h6>
             <label
               class="inline-flex items-center mt-3 items-center bg-amber-400 p-1 rounded-lg"
               for="Kindle"
@@ -918,8 +795,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-amber-400 checked:bg-white checked:before:bg-amber-400 hover:before:opacity-10 ml-1"
                 type="checkbox"
-                name="Kindle"
+                name="Plataforma_Peli_Serie"
                 id="Kindle"
+                value="Kindle"
               />
             </label>
             <label
@@ -929,8 +807,9 @@
               <input
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-white checked:before:bg-pink-500 hover:before:opacity-10 ml-1"
                 type="checkbox"
-                name="AppleBooks"
+                name="Plataforma_Peli_Serie"
                 id="AppleBooks"
+                value="AppleBooks"
               />
             </label>
           </section>
@@ -941,10 +820,12 @@
               for="En_progreso"
               >En progreso
               <input
+              required
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-lime-300 checked:bg-white checked:before:bg-lime-300 hover:before:opacity-10 ml-1"
                 type="radio"
                 name="Estado"
                 id="En_progreso"
+                value="En_progreso"
               />
             </label>
             <label
@@ -952,10 +833,12 @@
               for="Pendiente"
               >Pendiente
               <input
+              required
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-10 ml-1"
                 type="radio"
                 name="Estado"
                 id="Pendiente"
+                value="Pendiente"
               />
             </label>
             <label
@@ -963,10 +846,12 @@
               for="Terminado"
               >Terminado
               <input
+              required
                 class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-yellow-300 checked:bg-white checked:before:bg-yellow-300 hover:before:opacity-10 ml-1"
                 type="radio"
                 name="Estado"
                 id="Terminado"
+                value="Terminado"
               />
             </label>
           </section>
@@ -974,6 +859,7 @@
             <label for="fecha-terminación">
               Fecha de Terminación:
               <input
+              required
                 type="date"
                 name="fecha-terminación"
                 id="fecha-terminación"
@@ -986,6 +872,7 @@
             <label for="valoracion-final">
               Valoración Final:
               <input
+              required
                 type="range"
                 name="valoracion-final"
                 id="valoracion-final"
@@ -998,13 +885,14 @@
             <label for="valoracion-final">
               Reseña:
               <textarea
+              required
                 name="Resenia"
                 id="Resenia"
                 class="w-full h-16 resize-none border-2 rounded-lg border-gray-300"
               ></textarea>
             </label>
           </section>
-          <button type="button" class="bg-yellow-200 h-full rounded-lg py-2">
+          <button type="submit" class="bg-yellow-200 h-full rounded-lg py-2" id="botonCrearManadarForm">
             Agregar
           </button>
         </form>

@@ -346,5 +346,4 @@ if (sessionStorage.getItem("credentials") !== "") {
   dashboard.classList.toggle("hidden", false)
 } else {
   mostrarInicioSesion();
-  console.log("Hola")
 }
