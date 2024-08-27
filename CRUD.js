@@ -12,15 +12,18 @@ const addRecurso = async (niuwRecurso, id) => {
     }
   };
 
-/*   const crearRecurso = async()=>{
-    let recursos = []
-    let niuwRecurso = {
-        nombre_recurso:"En Agosto Nos Vemos",
-        estado_recurso:"Terminado",
-        genero_recurso:"Drama"
+  const crearRecurso = async()=>{
+    let recursoEstructura = {
+        nombre_recurso : "a",
+        url_portada : "a",
+        formato_recurso : "a",
+        generos_recurso : [],
+        plataformas_recurso : [],
+        estado_recurso : "",
+        fecha_terminacion : "",
+        valoracion_final : "",
+        resenia : "",
     }
-    recursos.push(niuwRecurso)
-    return recursos
-  } */
+  }
 
-addRecurso("Juanitos", 1)
+//addRecurso("", 1)
