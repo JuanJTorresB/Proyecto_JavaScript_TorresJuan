@@ -410,6 +410,8 @@ const dibujarSeccionesPorEstado = () => {
     />
     <button
       class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+      id="but_menu_desplegar"
+
     >
       <svg
         class="w-8 h-8"
@@ -718,6 +720,8 @@ const dibujarSeccionesPorPlataforma = () => {
     />
     <button
       class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+      id="but_menu_desplegar"
+
     >
       <svg
         class="w-8 h-8"
@@ -988,6 +992,8 @@ const dibujarSeccionesPorGeneros = async () => {
     />
     <button
       class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+      id="but_menu_desplegar"
+
     >
       <svg
         class="w-8 h-8"
@@ -1227,18 +1233,72 @@ const dibujarSeccionesPorGeneros = async () => {
 };
 
 const dibujarMovies = async () => {
-  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
+  Todo_Y_Fitros.innerHTML = `<button
+  class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+  id="but_menu_desplegar"
+>
+  <svg
+    class="w-8 h-8"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 448 512"
+  >
+    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+    <path
+      d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+    />
+  </svg>
+</button><section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
+  const butMenu = document.getElementById("but_menu_desplegar");
+  butMenu.addEventListener("click", () => {
+    menuAside.classList.toggle("-translate-x-80");
+  });
   AgregarGeneral(await traerFormatoRecurso("Película"), filtros_secciones);
 };
 const dibujarSeries = async () => {
-  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
+  Todo_Y_Fitros.innerHTML = `<button
+  class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+  id="but_menu_desplegar"
+>
+  <svg
+    class="w-8 h-8"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 448 512"
+  >
+    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+    <path
+      d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+    />
+  </svg>
+</button><section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
+  const butMenu = document.getElementById("but_menu_desplegar");
+  butMenu.addEventListener("click", () => {
+    menuAside.classList.toggle("-translate-x-80");
+  });
   AgregarGeneral(await traerFormatoRecurso("Serie"), filtros_secciones);
 };
 const dibujarLibros = async () => {
-  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
+  Todo_Y_Fitros.innerHTML = `<button
+  class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+  id="but_menu_desplegar"
+>
+  <svg
+    class="w-8 h-8"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 448 512"
+  >
+    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+    <path
+      d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+    />
+  </svg>
+</button><section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
+  const butMenu = document.getElementById("but_menu_desplegar");
+  butMenu.addEventListener("click", () => {
+    menuAside.classList.toggle("-translate-x-80");
+  });
   AgregarGeneral(await traerFormatoRecurso("Libro"), filtros_secciones);
 };
 
@@ -1253,6 +1313,8 @@ const dibujarBusquedaPorNombre = async () => {
   />
   <button
     class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+    id="but_menu_desplegar"
+
   >
     <svg
       class="w-8 h-8"
@@ -1288,9 +1350,13 @@ const IncioDePag = () => {
   const Bot_Home = document.getElementById("Bot_Home");
   Bot_Home.addEventListener("click", () => {
     dibujarSeccionesPorEstado();
-    const flecha_home = document.getElementById("flecha_home")
-    ActivarEstiloBoton(Bot_Home,flecha_home)
-});
+    const flecha_home = document.getElementById("flecha_home");
+    ActivarEstiloBoton(Bot_Home, flecha_home);
+    const butMenu = document.getElementById("but_menu_desplegar");
+    butMenu.addEventListener("click", () => {
+      menuAside.classList.toggle("-translate-x-80");
+    });
+  });
   const Estado_Filtro_Boton = document.getElementById("Estado_Filtro_Boton");
   Estado_Filtro_Boton.addEventListener("click", () => {
     dibujarSeccionesPorEstado();
@@ -1316,9 +1382,9 @@ const IncioDePag = () => {
 
   const Bot_Movies = document.getElementById("Bot_Movies");
   Bot_Movies.addEventListener("click", () => {
-      dibujarMovies();
-      const flecha_movie = document.getElementById("flecha_movie")
-    ActivarEstiloBoton(Bot_Movies,flecha_movie)
+    dibujarMovies();
+    const flecha_movie = document.getElementById("flecha_movie");
+    ActivarEstiloBoton(Bot_Movies, flecha_movie);
   });
 
   //dibujarLibros()
@@ -1326,8 +1392,8 @@ const IncioDePag = () => {
   const Bot_books = document.getElementById("Bot_books");
   Bot_books.addEventListener("click", () => {
     dibujarLibros();
-    const flecha_book = document.getElementById("flecha_book")
-    ActivarEstiloBoton(Bot_books,flecha_book)
+    const flecha_book = document.getElementById("flecha_book");
+    ActivarEstiloBoton(Bot_books, flecha_book);
   });
 
   //dibujarSeries()
@@ -1335,8 +1401,8 @@ const IncioDePag = () => {
   const Bot_series = document.getElementById("Bot_series");
   Bot_series.addEventListener("click", () => {
     dibujarSeries();
-    const flecha_series = document.getElementById("flecha_series")
-    ActivarEstiloBoton(Bot_series,flecha_series)
+    const flecha_series = document.getElementById("flecha_series");
+    ActivarEstiloBoton(Bot_series, flecha_series);
   });
 
   //dibujarBusquedaPorNombre()
@@ -1362,28 +1428,57 @@ IncioDePag();
 
 //Estilos Botones
 
-const ActivarEstiloBoton = (elemento, flechaElemento)=>{
-    const Bot_Home = document.getElementById("Bot_Home")
-    Bot_Home.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`
-    const Bot_Movies = document.getElementById("Bot_Movies")
-    Bot_Movies.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`
-    const Bot_books = document.getElementById("Bot_books")
-    Bot_books.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`
-    const Bot_series = document.getElementById("Bot_series")
-    Bot_series.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`
-    const flecha_movie = document.getElementById("flecha_movie")
-    flecha_movie.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-400"
-    flecha_movie.classList.toggle("invisible", true)
-    const flecha_book = document.getElementById("flecha_book")
-    flecha_book.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-400"
-    flecha_book.classList.toggle("invisible", true)
-    const flecha_series = document.getElementById("flecha_series")
-    flecha_series.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-400"
-    flecha_series.classList.toggle("invisible", true)
-    const flecha_home = document.getElementById("flecha_home")
-    flecha_home.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-400"
-    flecha_home.classList.toggle("invisible", true)
-    elemento.classList = `justify-around none poppins-semibold font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full bg-indigo-200 text-gray-800 shadow-md shadow-blue-200/20 hover:shadow-lg hover:shadow-blue-200/40 w-full flex items-center gap-4 pl-8 capitalize`
-    flechaElemento.classList.toggle("invisible", false)
-    flechaElemento.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-800"
-}
+const ActivarEstiloBoton = (elemento, flechaElemento) => {
+  const Bot_Home = document.getElementById("Bot_Home");
+  Bot_Home.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`;
+  const Bot_Movies = document.getElementById("Bot_Movies");
+  Bot_Movies.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`;
+  const Bot_books = document.getElementById("Bot_books");
+  Bot_books.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`;
+  const Bot_series = document.getElementById("Bot_series");
+  Bot_series.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`;
+  const flecha_movie = document.getElementById("flecha_movie");
+  flecha_movie.previousElementSibling.previousElementSibling.classList =
+    "w-6 h-6 fill-gray-400";
+  flecha_movie.classList.toggle("invisible", true);
+  const flecha_book = document.getElementById("flecha_book");
+  flecha_book.previousElementSibling.previousElementSibling.classList =
+    "w-6 h-6 fill-gray-400";
+  flecha_book.classList.toggle("invisible", true);
+  const flecha_series = document.getElementById("flecha_series");
+  flecha_series.previousElementSibling.previousElementSibling.classList =
+    "w-6 h-6 fill-gray-400";
+  flecha_series.classList.toggle("invisible", true);
+  const flecha_home = document.getElementById("flecha_home");
+  flecha_home.previousElementSibling.previousElementSibling.classList =
+    "w-6 h-6 fill-gray-400";
+  flecha_home.classList.toggle("invisible", true);
+  elemento.classList = `justify-around none poppins-semibold font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full bg-indigo-200 text-gray-800 shadow-md shadow-blue-200/20 hover:shadow-lg hover:shadow-blue-200/40 w-full flex items-center gap-4 pl-8 capitalize`;
+  flechaElemento.classList.toggle("invisible", false);
+  flechaElemento.previousElementSibling.previousElementSibling.classList =
+    "w-6 h-6 fill-gray-800";
+};
+
+//Estilos y Menu Responsive
+
+const butMenu = document.getElementById("but_menu_desplegar");
+
+const butMenuCerrar = document.getElementById("button_cerrar_dashboard");
+
+const menuAside = document.getElementById("dashboard");
+
+butMenu.addEventListener("click", () => {
+  menuAside.classList.toggle("-translate-x-80");
+});
+
+butMenuCerrar.addEventListener("click", () => {
+  menuAside.classList.toggle("-translate-x-80");
+});
+
+window.addEventListener("resize", () => {
+  windowWidth = window.innerWidth;
+  console.log(windowWidth);
+  if (windowWidth >= 1280) {
+    menuAside.classList.toggle("-translate-x-80", true);
+  }
+});
