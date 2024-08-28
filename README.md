@@ -24,7 +24,7 @@ Tecnologías usadas en este proyecto:
 
 ## Instalación 📦
 ```bash
-git clone https://github.com/TUUSUARIO/StoryStack.git
+git clone https://github.com/JuanJTorresB/Proyecto_JavaScript_TorresJuan.git
 Abre el archivo index.html en tu navegador favorito.
 Crear un Cuenta o Incia secion con estas credenciasles:
 Gmail: bluey@gmail.com
