@@ -1,8 +1,8 @@
 // Lógica de Cambio de Inicio de Sesión A Registro y Viceversa Front
 
-const dashboard = document.getElementById("dashboard")
+const dashboard = document.getElementById("dashboard");
 
-const main = document.getElementById("main")
+const main = document.getElementById("main");
 
 const form_inicial = document.getElementById("form_inicial");
 
@@ -107,7 +107,7 @@ const mostrarRegistro = () => {
           </div>
         </div>
       </div>`;
-  const form_register = document.getElementById("form_register")
+  const form_register = document.getElementById("form_register");
   const nombres_register = document.getElementById("nombres_register");
   const apellidos_register = document.getElementById("apellidos_register");
   const email_register = document.getElementById("email_register");
@@ -120,24 +120,29 @@ const mostrarRegistro = () => {
   form_register.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (password_register.value === password_register_confirmar.value) {
-      let emailRegistrado = await gmailRegistered(email_register.value)
+      let emailRegistrado = await gmailRegistered(email_register.value);
       if (!emailRegistrado) {
-        await registerUser(email_register.value, password_register.value, nombres_register.value, apellidos_register.value)
-        form_inicial.classList.toggle("hidden", true)
-        main.classList.toggle("hidden", false)
-        dashboard.classList.toggle("hidden", false)
+        await registerUser(
+          email_register.value,
+          password_register.value,
+          nombres_register.value,
+          apellidos_register.value
+        );
+        form_inicial.classList.toggle("hidden", true);
+        main.classList.toggle("hidden", false);
+        dashboard.classList.toggle("hidden", false);
         if (remember_me_register.checked) {
-          let id = await gmailRegisteredToId(email_register.value)
-          localStorage.setItem("credentials", `${id}`)
+          let id = await gmailRegisteredToId(email_register.value);
+          localStorage.setItem("credentials", `${id}`);
         } else {
-          let id = await gmailRegisteredToId(email_register.value)
-          sessionStorage.setItem("credentials", `${id}`)
+          let id = await gmailRegisteredToId(email_register.value);
+          sessionStorage.setItem("credentials", `${id}`);
         }
       } else {
-        alert("El Email ya esta Registrado")
+        alert("El Email ya esta Registrado");
       }
     } else {
-      alert("Las Contraseñas No son Iguales")
+      alert("Las Contraseñas No son Iguales");
     }
   });
   inicio_sesion_cambio.addEventListener("click", mostrarInicioSesion);
@@ -218,31 +223,34 @@ const mostrarInicioSesion = () => {
           </div>
         </div>
       </div>`;
-  const form_login = document.getElementById("form_login")
+  const form_login = document.getElementById("form_login");
   const correo_login = document.getElementById("correo_login");
   const password_login = document.getElementById("password_login");
   const remember_login = document.getElementById("remember_login");
   const crear_cuenta_cambio = document.getElementById("crear_cuenta_cambio");
   form_login.addEventListener("submit", async (event) => {
     event.preventDefault();
-    let emailRegistrado = await gmailRegistered(correo_login.value)
+    let emailRegistrado = await gmailRegistered(correo_login.value);
     if (emailRegistrado) {
-      if (await gmailRegisteredToPassword(correo_login.value) == password_login.value) {
-        form_inicial.classList.toggle("hidden", true)
-        main.classList.toggle("hidden", false)
-        dashboard.classList.toggle("hidden", false)
+      if (
+        (await gmailRegisteredToPassword(correo_login.value)) ==
+        password_login.value
+      ) {
+        form_inicial.classList.toggle("hidden", true);
+        main.classList.toggle("hidden", false);
+        dashboard.classList.toggle("hidden", false);
         if (remember_login.checked) {
-          let id = await gmailRegisteredToId(correo_login.value)
-          localStorage.setItem("credentials", `${id}`)
+          let id = await gmailRegisteredToId(correo_login.value);
+          localStorage.setItem("credentials", `${id}`);
         } else {
-          let id = await gmailRegisteredToId(correo_login.value)
-          sessionStorage.setItem("credentials", `${id}`)
+          let id = await gmailRegisteredToId(correo_login.value);
+          sessionStorage.setItem("credentials", `${id}`);
         }
       } else {
-        alert("Contraseña Incorrecta")
+        alert("Contraseña Incorrecta");
       }
     } else {
-      alert("Email No Registrado")
+      alert("Email No Registrado");
     }
   });
   crear_cuenta_cambio.addEventListener("click", mostrarRegistro);
@@ -268,40 +276,40 @@ const url = "https://66caa49f59f4350f064f915e.mockapi.io/StoryStack";
 const gmailRegistered = async (userEmailParaConfirmar) => {
   const resultadoUsers = await petición(`${url}/users`, {
     method: "GET",
-    headers: { "content-type": "application/json" }
+    headers: { "content-type": "application/json" },
   });
   for (user of resultadoUsers) {
     if (user.correo == userEmailParaConfirmar) {
-      return true
+      return true;
     }
   }
-  return false
+  return false;
 };
 
 const gmailRegisteredToId = async (userEmailParaId) => {
   const resultadoUsers = await petición(`${url}/users`, {
     method: "GET",
-    headers: { "content-type": "application/json" }
+    headers: { "content-type": "application/json" },
   });
   for (user of resultadoUsers) {
     if (user.correo == userEmailParaId) {
-      return user.id
+      return user.id;
     }
   }
-  return "-1"
+  return "-1";
 };
 
 const gmailRegisteredToPassword = async (userEmailParaPassword) => {
   const resultadoUsers = await petición(`${url}/users`, {
     method: "GET",
-    headers: { "content-type": "application/json" }
+    headers: { "content-type": "application/json" },
   });
   for (user of resultadoUsers) {
     if (user.correo == userEmailParaPassword) {
-      return user.contrasenia
+      return user.contrasenia;
     }
   }
-  return "-1"
+  return "-1";
 };
 
 const registerUser = async (Correo, Password, Nombre, Apellidos) => {
@@ -332,18 +340,21 @@ const addUser = async (newUser) => {
 
 //Setear a un string vació Credenciales en caso de no tener activadas en el momento
 
-localStorage.setItem("credentials", localStorage.getItem("credentials") ?? "")
+localStorage.setItem("credentials", localStorage.getItem("credentials") ?? "");
 
-sessionStorage.setItem("credentials", sessionStorage.getItem("credentials") ?? "")
+sessionStorage.setItem(
+  "credentials",
+  sessionStorage.getItem("credentials") ?? ""
+);
 
 if (sessionStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Session ID
-  main.classList.toggle("hidden", false)
-  dashboard.classList.toggle("hidden", false)
+  main.classList.toggle("hidden", false);
+  dashboard.classList.toggle("hidden", false);
 } else if (localStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Local ID
-  main.classList.toggle("hidden", false)
-  dashboard.classList.toggle("hidden", false)
+  main.classList.toggle("hidden", false);
+  dashboard.classList.toggle("hidden", false);
 } else {
   mostrarInicioSesion();
 }

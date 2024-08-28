@@ -1,18 +1,17 @@
 //Traer Id de el User
 
-var IdUserActual = "-1"
+var IdUserActual = "-1";
 
 if (sessionStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Session ID
-  main.classList.toggle("hidden", false)
-  dashboard.classList.toggle("hidden", false)
-  IdUserActual = sessionStorage.getItem("credentials")
-
+  main.classList.toggle("hidden", false);
+  dashboard.classList.toggle("hidden", false);
+  IdUserActual = sessionStorage.getItem("credentials");
 } else if (localStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Local ID
-  main.classList.toggle("hidden", false)
-  dashboard.classList.toggle("hidden", false)
-  IdUserActual = localStorage.getItem("credentials")
+  main.classList.toggle("hidden", false);
+  dashboard.classList.toggle("hidden", false);
+  IdUserActual = localStorage.getItem("credentials");
 }
 
 const addRecurso = async (recursos) => {
@@ -29,7 +28,14 @@ const addRecurso = async (recursos) => {
   }
 };
 
-const crearRecurso = async (nombre, url, formato, generos, plataformas, estado) => {
+const crearRecurso = async (
+  nombre,
+  url,
+  formato,
+  generos,
+  plataformas,
+  estado
+) => {
   let recursoEstructura = {
     nombre_recurso: nombre,
     url_portada: url,
@@ -39,67 +45,81 @@ const crearRecurso = async (nombre, url, formato, generos, plataformas, estado) 
     estado_recurso: estado,
     fecha_terminacion: "",
     valoracion_final: "",
-    resenia: ""
+    resenia: "",
   };
-  await addRecurso(recursoEstructura)
-}
+  await addRecurso(recursoEstructura);
+};
 
 const checkbox_seleccionados = (querySelectorAllArgg) => {
-  let arrFinal = []
-  const checkbox_group = document.querySelectorAll(querySelectorAllArgg)
+  let arrFinal = [];
+  const checkbox_group = document.querySelectorAll(querySelectorAllArgg);
   for (checkbox of checkbox_group) {
     if (checkbox.checked) {
-      arrFinal.push(checkbox.value)
+      arrFinal.push(checkbox.value);
     }
   }
-  return arrFinal
-}
+  return arrFinal;
+};
 
-const formCrearRecurso = document.getElementById("formCrearRecurso")
+const formCrearRecurso = document.getElementById("formCrearRecurso");
 
-const dialog_crear_recurso = document.getElementById("dialog_crear_recurso")
+const dialog_crear_recurso = document.getElementById("dialog_crear_recurso");
 
-const boton_crear_recuros = document.getElementById("boton_crear_recuros")
+const boton_crear_recuros = document.getElementById("boton_crear_recuros");
 
 boton_crear_recuros.addEventListener("click", (event) => {
-  event.preventDefault()
-  dialog_crear_recurso.classList.toggle("invisible", false)
-})
+  event.preventDefault();
+  dialog_crear_recurso.classList.toggle("invisible", false);
+});
 
 formCrearRecurso.addEventListener("submit", (event) => {
   event.preventDefault();
-  const form_nombre_recurso = document.getElementById("form_nombre_recurso").value;
+  const form_nombre_recurso = document.getElementById(
+    "form_nombre_recurso"
+  ).value;
   const url_recurso = document.getElementById("url_recurso").value;
   const formato_recurso = checkbox_seleccionados('input[name="formato"]');
   const generos_recurso = checkbox_seleccionados('input[name="generos"]');
-  const plataforma_recurso = checkbox_seleccionados('input[name="Plataforma_Peli_Serie"]');
+  const plataforma_recurso = checkbox_seleccionados(
+    'input[name="Plataforma_Peli_Serie"]'
+  );
   const estado_recurso = checkbox_seleccionados('input[name="Estado"]');
-  crearRecurso(form_nombre_recurso, url_recurso, formato_recurso, generos_recurso, plataforma_recurso, estado_recurso);
+  crearRecurso(
+    form_nombre_recurso,
+    url_recurso,
+    formato_recurso,
+    generos_recurso,
+    plataforma_recurso,
+    estado_recurso
+  );
   formCrearRecurso.reset();
   dialog_crear_recurso.classList.toggle("invisible", true);
-})
-
+});
 
 const traerRecursosEstadoEnProgreso = () => {
-  let urlRecursos = new URL(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`);
-  urlRecursos.searchParams.append('estado_recurso', ["En_progreso"]);
+  let urlRecursos = new URL(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
+  );
+  urlRecursos.searchParams.append("estado_recurso", ["En_progreso"]);
   fetch(urlRecursos, {
-    method: 'GET',
-    headers: { 'content-type': 'application/json' },
-  }).then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    console.error("Recurso No Encontrado")
-  }).then(resultado => {
-    agregarFiltroEstadoEnProceso(resultado, section_en_progreso)
-  }).catch(error => {
-    console.error(error)
+    method: "GET",
+    headers: { "content-type": "application/json" },
   })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Recurso No Encontrado");
+    })
+    .then((resultado) => {
+      agregarFiltroEstadoEnProceso(resultado, section_en_progreso);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
-}
-
-const section_en_progreso = document.getElementById("en-progreso")
+const section_en_progreso = document.getElementById("en-progreso");
 
 const creadorDeTags = (arr) => {
   let tagsEstilizados = [];
@@ -171,19 +191,22 @@ const creadorDeTags = (arr) => {
       default:
         colorClass = "bg-gray-900"; // Color por defecto si no se encuentra el tag
         break;
-    }//bg-cyan-300 px-1 rounded-lg w-fit my-1
-    tagsEstilizados.push(`<li class="${colorClass} px-1 rounded-lg w-fit my-1">${tag}</li>`);
+    } //bg-cyan-300 px-1 rounded-lg w-fit my-1
+    tagsEstilizados.push(
+      `<li class="${colorClass} px-1 rounded-lg w-fit my-1">${tag}</li>`
+    );
   }
-  return tagsEstilizados.join('');
+  return tagsEstilizados.join("");
 };
 
 const agregarFiltroEstadoEnProceso = (arr, section) => {
   for (recursos of arr) {
-    console.log(recursos.generos_recurso) //fill-yellow-300
-    tagsGeneros = creadorDeTags(recursos.generos_recurso)
-    tagsPlataformas = creadorDeTags(recursos.plataformas_recurso)
-    let nuevaCard = document.createElement("figure")
-    nuevaCard.classList = "flex gap-x-4 p-4 border-2 rounded-xl items-center sm:h-72 h-fit w-fit overflow-x-auto"
+    console.log(recursos.generos_recurso); //fill-yellow-300
+    tagsGeneros = creadorDeTags(recursos.generos_recurso);
+    tagsPlataformas = creadorDeTags(recursos.plataformas_recurso);
+    let nuevaCard = document.createElement("figure");
+    nuevaCard.classList =
+      "flex gap-x-4 p-4 border-2 rounded-xl items-center sm:h-72 h-fit w-fit overflow-x-auto";
     nuevaCard.innerHTML = `<img
     id="Img_recurso"
     class="w-32 h-38"
@@ -251,314 +274,372 @@ const agregarFiltroEstadoEnProceso = (arr, section) => {
     <button id="boton_editar_card_${recursos.id}" value="${recursos.id}" class="bg-indigo-400 p-2 rounded-lg"><svg class="w-8 h-8 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160L0 416c0 53 43 96 96 96l256 0c53 0 96-43 96-96l0-96c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7-14.3 32-32 32L96 448c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 64z"/></svg></button>  
     <button id="boton_terminar_card_${recursos.id}" value="${recursos.id}" class="bg-cyan-400 p-2 rounded-lg"><svg class="w-8 h-8 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 80c0-26.5 21.5-48 48-48l288 0c26.5 0 48 21.5 48 48l0 304L96 384 96 80zm313 47c-9.4-9.4-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L409 161c9.4-9.4 9.4-24.6 0-33.9zM0 336c0-26.5 21.5-48 48-48l16 0 0 128 448 0 0-128 16 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48L48 480c-26.5 0-48-21.5-48-48l0-96z"/></svg></button>
     </section>
-  </figcaption>`
-  section.appendChild(nuevaCard)
-  const boton_eliminar_card = document.getElementById(`boton_eliminar_card_${recursos.id}`)
-  boton_eliminar_card.addEventListener("click", ()=>{
-    let id = boton_eliminar_card.value
-    EliminarRecurso(id)
-  })
-  const boton_editar_card = document.getElementById(`boton_editar_card_${recursos.id}`)
-  boton_editar_card.addEventListener("click", ()=>{
-    idRecurso = boton_editar_card.value
-    dialog_editar_recurso.classList.toggle("invisible", false);
-  })
-  const boton_terminar_card = document.getElementById(`boton_terminar_card_${recursos.id}`)
-  boton_terminar_card.addEventListener("click", ()=>{
-    idRecurso = boton_terminar_card.value
-    dialog_terminar_recurso.classList.toggle("invisible", false);
-  })
+  </figcaption>`;
+    section.appendChild(nuevaCard);
+    const boton_eliminar_card = document.getElementById(
+      `boton_eliminar_card_${recursos.id}`
+    );
+    boton_eliminar_card.addEventListener("click", () => {
+      let id = boton_eliminar_card.value;
+      EliminarRecurso(id);
+    });
+    const boton_editar_card = document.getElementById(
+      `boton_editar_card_${recursos.id}`
+    );
+    boton_editar_card.addEventListener("click", () => {
+      idRecurso = boton_editar_card.value;
+      dialog_editar_recurso.classList.toggle("invisible", false);
+    });
+    const boton_terminar_card = document.getElementById(
+      `boton_terminar_card_${recursos.id}`
+    );
+    boton_terminar_card.addEventListener("click", () => {
+      idRecurso = boton_terminar_card.value;
+      dialog_terminar_recurso.classList.toggle("invisible", false);
+    });
   }
-}
+};
 
 //Id para editar el Recurso
 
-var idRecurso
+var idRecurso;
 
 const traerRecursosEstadoTerminado = () => {
-  let urlRecursos = new URL(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`);
-  urlRecursos.searchParams.append('estado_recurso', ["Terminado"]);
+  let urlRecursos = new URL(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
+  );
+  urlRecursos.searchParams.append("estado_recurso", ["Terminado"]);
   fetch(urlRecursos, {
-    method: 'GET',
-    headers: { 'content-type': 'application/json' },
-  }).then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    console.error("Recurso No Encontrado")
-  }).then(tasks => {
-    console.log(tasks)
-  }).catch(error => {
-    console.error(error)
+    method: "GET",
+    headers: { "content-type": "application/json" },
   })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Recurso No Encontrado");
+    })
+    .then((tasks) => {
+      console.log(tasks);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
-}
-
-const section_pendiente = document.getElementById("pendiente")
+const section_pendiente = document.getElementById("pendiente");
 
 const agregarFiltroEstadoPendiente = (arr, section) => {
   for (recursos of arr) {
-    let nuevaCard = document.createElement("figure")
-    nuevaCard.classList = "flex gap-x-4 p-4 border-2 rounded-xl"
+    let nuevaCard = document.createElement("figure");
+    nuevaCard.classList = "flex gap-x-4 p-4 border-2 rounded-xl";
 
-    section.appendChild(nuevaCard)
+    section.appendChild(nuevaCard);
   }
-}
+};
 
 const traerRecursosEstadoPendiente = () => {
-  let urlRecursos = new URL(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`);
-  urlRecursos.searchParams.append('estado_recurso', ["Pendiente"]);
+  let urlRecursos = new URL(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
+  );
+  urlRecursos.searchParams.append("estado_recurso", ["Pendiente"]);
   fetch(urlRecursos, {
-    method: 'GET',
-    headers: { 'content-type': 'application/json' },
-  }).then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    console.error("Recurso No Encontrado")
-  }).then(resultado => {
-    console.log(resultado)
-  }).catch(error => {
-    console.error(error)
+    method: "GET",
+    headers: { "content-type": "application/json" },
   })
-
-}
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Recurso No Encontrado");
+    })
+    .then((resultado) => {
+      console.log(resultado);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
 //Elinimar Racurso
 
-const EliminarRecurso = async(id)=>{
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'DELETE',
-  }).then(res => {
-    if (res.ok) {
-        return res.json();
+const EliminarRecurso = async (id) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "DELETE",
     }
-    console.error("No se Puedo Eliminar")
-  }).then(resultado => {
-    console.log("Card Eliminada")
-  }).catch(error => {
-    console.error(error)
-  })
-}
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("No se Puedo Eliminar");
+    })
+    .then((resultado) => {
+      console.log("Card Eliminada");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
-const formEditarRecurso = document.getElementById("formEditarRecurso")
+const formEditarRecurso = document.getElementById("formEditarRecurso");
 
-const dialog_editar_recurso = document.getElementById("dialog_editar_recurso")
+const dialog_editar_recurso = document.getElementById("dialog_editar_recurso");
 
 formEditarRecurso.addEventListener("submit", (event) => {
   event.preventDefault();
-  const form_nombre_recurso = document.getElementById("form_nombre_recurso_editar").value;
+  const form_nombre_recurso = document.getElementById(
+    "form_nombre_recurso_editar"
+  ).value;
   const url_recurso = document.getElementById("url_recurso_editar").value;
-  const formato_recurso = checkbox_seleccionados('input[name="formato_editar"]');
-  const generos_recurso = checkbox_seleccionados('input[name="generos_editar"]');
-  const plataforma_recurso = checkbox_seleccionados('input[name="Plataforma_Peli_Serie_editar"]');
+  const formato_recurso = checkbox_seleccionados(
+    'input[name="formato_editar"]'
+  );
+  const generos_recurso = checkbox_seleccionados(
+    'input[name="generos_editar"]'
+  );
+  const plataforma_recurso = checkbox_seleccionados(
+    'input[name="Plataforma_Peli_Serie_editar"]'
+  );
   const estado_recurso = checkbox_seleccionados('input[name="Estado_editar"]');
-  EditarRecursoNombreRecurso(idRecurso, form_nombre_recurso)
-  EditarRecursoUrlPortada(idRecurso, url_recurso)
-  EditarRecursoFormatoRecurso(idRecurso, formato_recurso)
-  EditarRecursoGenerosRecurso(idRecurso, generos_recurso)
-  EditarRecursoPlataformasRecurso(idRecurso, plataforma_recurso)
-  EditarRecursoEstadoRecurso(idRecurso, estado_recurso)
+  EditarRecursoNombreRecurso(idRecurso, form_nombre_recurso);
+  EditarRecursoUrlPortada(idRecurso, url_recurso);
+  EditarRecursoFormatoRecurso(idRecurso, formato_recurso);
+  EditarRecursoGenerosRecurso(idRecurso, generos_recurso);
+  EditarRecursoPlataformasRecurso(idRecurso, plataforma_recurso);
+  EditarRecursoEstadoRecurso(idRecurso, estado_recurso);
   formEditarRecurso.reset();
   dialog_editar_recurso.classList.toggle("invisible", true);
-})
+});
 
 //Editar Recurso
 
-const EditarRecursoNombreRecurso = async(id, nuevo)=>{
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'PUT',
-    headers: {'content-type':'application/json'},
-    body: JSON.stringify({nombre_recurso: nuevo})
-  }).then(res => {
-    if (res.ok) {
+const EditarRecursoNombreRecurso = async (id, nuevo) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ nombre_recurso: nuevo }),
+    }
+  )
+    .then((res) => {
+      if (res.ok) {
         return res.json();
-    }
-    console.error("Nombre No Editado")
-  }).then(task => {
-    console.log("Nombre Editado")
-  }).catch(error => {
-  })
+      }
+      console.error("Nombre No Editado");
+    })
+    .then((task) => {
+      console.log("Nombre Editado");
+    })
+    .catch((error) => {});
 };
 
-const EditarRecursoFormatoRecurso = async(id, nuevo)=>{
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'PUT',
-    headers: {'content-type':'application/json'},
-    body: JSON.stringify({formato_recurso: nuevo})
-  }).then(res => {
-    if (res.ok) {
-      return res.json();
+const EditarRecursoFormatoRecurso = async (id, nuevo) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ formato_recurso: nuevo }),
     }
-    console.error("Formato No Editado")
-  }).then(task => {
-    console.log("Formato Editado")
-  }).catch(error => {
-  })
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Formato No Editado");
+    })
+    .then((task) => {
+      console.log("Formato Editado");
+    })
+    .catch((error) => {});
 };
 
-const EditarRecursoUrlPortada = async(id, nuevo) => {
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'PUT',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify({url_portada: nuevo})
-  })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
+const EditarRecursoUrlPortada = async (id, nuevo) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ url_portada: nuevo }),
     }
-    console.error("URL Portada No Editada");
-  })
-  .then(task => {
-    console.log("URL Portada Editada");
-  })
-  .catch(error => {
-    console.error("Error al Editar URL Portada:", error);
-  });
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("URL Portada No Editada");
+    })
+    .then((task) => {
+      console.log("URL Portada Editada");
+    })
+    .catch((error) => {
+      console.error("Error al Editar URL Portada:", error);
+    });
 };
 
-const EditarRecursoGenerosRecurso = async(id, nuevo) => {
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'PUT',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify({generos_recurso: nuevo})
-  })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
+const EditarRecursoGenerosRecurso = async (id, nuevo) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ generos_recurso: nuevo }),
     }
-    console.error("Géneros No Editados");
-  })
-  .then(task => {
-    console.log("Géneros Editados");
-  })
-  .catch(error => {
-    console.error("Error al Editar Géneros:", error);
-  });
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Géneros No Editados");
+    })
+    .then((task) => {
+      console.log("Géneros Editados");
+    })
+    .catch((error) => {
+      console.error("Error al Editar Géneros:", error);
+    });
 };
 
-const EditarRecursoPlataformasRecurso = async(id, nuevo) => {
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'PUT',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify({plataformas_recurso: nuevo})
-  })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
+const EditarRecursoPlataformasRecurso = async (id, nuevo) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ plataformas_recurso: nuevo }),
     }
-    console.error("Plataformas No Editadas");
-  })
-  .then(task => {
-    console.log("Plataformas Editadas");
-  })
-  .catch(error => {
-    console.error("Error al Editar Plataformas:", error);
-  });
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Plataformas No Editadas");
+    })
+    .then((task) => {
+      console.log("Plataformas Editadas");
+    })
+    .catch((error) => {
+      console.error("Error al Editar Plataformas:", error);
+    });
 };
 
-const EditarRecursoEstadoRecurso = async(id, nuevo) => {
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'PUT',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify({estado_recurso: nuevo})
-  })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
+const EditarRecursoEstadoRecurso = async (id, nuevo) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ estado_recurso: nuevo }),
     }
-    console.error("Estado No Editado");
-  })
-  .then(task => {
-    console.log("Estado Editado");
-  })
-  .catch(error => {
-    console.error("Error al Editar Estado:", error);
-  });
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Estado No Editado");
+    })
+    .then((task) => {
+      console.log("Estado Editado");
+    })
+    .catch((error) => {
+      console.error("Error al Editar Estado:", error);
+    });
 };
 
 // Terminar tareas
 
-const EditarRecursoFechaTerminacion = async(id, nuevo) => {
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'PUT',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify({fecha_terminacion: nuevo})
-  })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
+const EditarRecursoFechaTerminacion = async (id, nuevo) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ fecha_terminacion: nuevo }),
     }
-    console.error("Fecha de Terminación No Editada");
-  })
-  .then(task => {
-    console.log("Fecha de Terminación Editada");
-  })
-  .catch(error => {
-    console.error("Error al Editar Fecha de Terminación:", error);
-  });
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Fecha de Terminación No Editada");
+    })
+    .then((task) => {
+      console.log("Fecha de Terminación Editada");
+    })
+    .catch((error) => {
+      console.error("Error al Editar Fecha de Terminación:", error);
+    });
 };
 
-const EditarRecursoValoracionFinal = async(id, nuevo) => {
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'PUT',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify({valoracion_final: nuevo})
-  })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
+const EditarRecursoValoracionFinal = async (id, nuevo) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ valoracion_final: nuevo }),
     }
-    console.error("Valoración Final No Editada");
-  })
-  .then(task => {
-    console.log("Valoración Final Editada");
-  })
-  .catch(error => {
-    console.error("Error al Editar Valoración Final:", error);
-  });
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Valoración Final No Editada");
+    })
+    .then((task) => {
+      console.log("Valoración Final Editada");
+    })
+    .catch((error) => {
+      console.error("Error al Editar Valoración Final:", error);
+    });
 };
 
-const EditarRecursoResenia = async(id, nuevo) => {
-  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
-    method: 'PUT',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify({resenia: nuevo})
-  })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
+const EditarRecursoResenia = async (id, nuevo) => {
+  fetch(
+    `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
+    {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ resenia: nuevo }),
     }
-    console.error("Reseña No Editada");
-  })
-  .then(task => {
-    console.log("Reseña Editada");
-  })
-  .catch(error => {
-    console.error("Error al Editar Reseña:", error);
-  });
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      console.error("Reseña No Editada");
+    })
+    .then((task) => {
+      console.log("Reseña Editada");
+    })
+    .catch((error) => {
+      console.error("Error al Editar Reseña:", error);
+    });
 };
 
+const formTerminarRecurso = document.getElementById("formTerminarRecurso");
 
-const formTerminarRecurso = document.getElementById("formTerminarRecurso")
-
-const dialog_terminar_recurso = document.getElementById("dialog_terminar_recurso")
+const dialog_terminar_recurso = document.getElementById(
+  "dialog_terminar_recurso"
+);
 
 formTerminarRecurso.addEventListener("submit", (event) => {
   event.preventDefault();
   const fecha_terminación = document.getElementById("fecha-terminación").value;
   const valoracion_final = document.getElementById("valoracion-final").value;
   const Resenia = document.getElementById("Resenia").value;
-  EditarRecursoEstadoRecurso(idRecurso, ["Terminado"])
-  EditarRecursoFechaTerminacion(idRecurso, fecha_terminación)
-  EditarRecursoValoracionFinal(idRecurso, valoracion_final)
-  EditarRecursoResenia(idRecurso, Resenia)
+  EditarRecursoEstadoRecurso(idRecurso, ["Terminado"]);
+  EditarRecursoFechaTerminacion(idRecurso, fecha_terminación);
+  EditarRecursoValoracionFinal(idRecurso, valoracion_final);
+  EditarRecursoResenia(idRecurso, Resenia);
   formTerminarRecurso.reset();
   dialog_terminar_recurso.classList.toggle("invisible", true);
-})
+});
 
-const TerminarRecursos = ()=>{
+const TerminarRecursos = () => {};
 
-}
-
-traerRecursosEstadoEnProgreso()
+traerRecursosEstadoEnProgreso();

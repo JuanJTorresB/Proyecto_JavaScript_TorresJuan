@@ -1,723 +1,1288 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StoryStack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="login.js"></script>
+    <script defer src="CRUD.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StoryStack</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="login.js"></script>
-  <script defer src="CRUD.js"></script>
-</head>
-
-<body>
-  <section action="" class="poppins-medium" id="form_inicial"></section>
-  <aside
-    class="hidden bg-stone-100 -translate-x-80 fixed border-r-2 border-neutral-200 00 inset-0 z-50 h-full w-72 transition-transform duration-300 xl:translate-x-0"
-    id="dashboard">
-    <div class="relative border-b border-white/20">
-      <a class="flex items-center gap-4 py-6 px-8" href="#/">
-        <svg class="w-16 h-16 fill-gray-800" viewBox="0 0 36 31" xmlns="http://www.w3.org/2000/svg">
-          <g clip-path="url(#clip0_2123_60)">
-            <path
-              d="M11.4681 0.669697C10.0181 0.927975 8.75807 1.59354 7.61807 2.70612C6.73807 3.56043 6.14807 4.4942 5.75807 5.63659C5.39807 6.68957 5.30807 8.55712 5.56807 9.70943C5.76807 10.6134 6.44807 12.0041 7.02807 12.6896L7.43807 13.1863L7.19807 13.3353C6.80807 13.5836 6.43807 14.0207 6.29807 14.3882L6.17807 14.726H3.59807H1.01807L0.618066 15.0836C0.388066 15.2922 0.178066 15.5902 0.118066 15.7988C0.0580664 16.0273 0.0180664 18.4909 0.0180664 22.4048C0.0180664 27.7889 0.0380664 28.6929 0.168066 29.0008C0.378066 29.4975 0.588066 29.7161 1.06807 29.9346C1.44807 30.1134 2.01807 30.1233 12.8481 30.1233C25.0181 30.1233 24.6081 30.1432 25.1381 29.6565C25.2981 29.5174 25.3181 29.5174 25.3181 29.6465C25.3181 29.726 25.4081 29.9147 25.5281 30.0637C25.7281 30.322 25.7381 30.322 27.1781 30.322C28.4881 30.322 28.6381 30.3022 28.8181 30.1233C29.0081 29.9346 29.0181 29.7856 29.0281 24.9876C29.0281 22.2657 29.0281 19.7525 29.0181 19.3949C28.9981 18.322 29.1681 18.8286 29.4981 20.8353C29.6781 21.8684 30.1081 24.3518 30.4581 26.3386C31.1981 30.5505 31.1281 30.3916 32.1681 30.2823C32.4981 30.2426 33.1481 30.1333 33.6081 30.0439C34.2981 29.9048 34.4881 29.8253 34.6481 29.6068L34.8481 29.3386L34.5281 27.5207C34.3581 26.5174 33.9681 24.2922 33.6681 22.5737C33.3581 20.8551 32.9581 18.5406 32.7681 17.4379C32.2381 14.428 32.2581 14.4975 32.0181 14.3088C31.7381 14.0902 31.6981 14.0902 30.3581 14.3286C29.2481 14.5372 28.9981 14.5273 29.0281 14.3088C29.0381 14.2392 29.0381 13.9015 29.0281 13.5538C29.0081 12.5803 28.9381 12.5406 27.1881 12.5406C25.3381 12.5406 25.3781 12.5008 25.3381 14.0902L25.2981 15.2227L24.9981 14.9743L24.6981 14.726H20.4981H16.2881L17.0281 14.2492C19.5381 12.62 20.8681 9.48096 20.2781 6.58029C19.9481 4.96109 19.2981 3.79884 18.0881 2.63659C16.2781 0.908108 13.9681 0.212744 11.4681 0.669697ZM14.6681 1.25579C16.0181 1.61341 17.5981 2.64652 18.3681 3.67963C19.7481 5.50745 20.1781 8.04056 19.4781 10.1068C18.6881 12.4114 16.7181 14.1796 14.3781 14.6863C13.1781 14.9445 11.6281 14.8452 10.5381 14.4478C8.89807 13.8419 7.49807 12.6399 6.73807 11.1697C6.10807 9.95778 5.97807 9.40149 5.97807 7.92135C5.96807 6.82864 6.00807 6.53062 6.19807 5.94453C7.04807 3.42135 8.88807 1.75248 11.4681 1.15645C12.2081 0.987577 13.8281 1.03725 14.6681 1.25579ZM28.5681 12.9876C28.7881 13.1962 28.8181 13.3154 28.8181 13.8816V14.5273H27.2681H25.7181V13.9214C25.7181 12.8783 25.8781 12.7591 27.3481 12.7492C28.2581 12.7392 28.3481 12.7591 28.5681 12.9876ZM8.41807 14.0306C8.57807 14.1399 8.89807 14.3386 9.13807 14.4776L9.56807 14.726H8.59807C7.50807 14.726 7.42807 14.6664 7.82807 14.12C8.06807 13.7723 8.05807 13.7823 8.41807 14.0306ZM31.7481 14.6068C31.8881 14.7558 32.1581 15.7194 32.0781 15.7889C32.0581 15.8187 29.2181 16.3154 29.0981 16.3154C29.0681 16.3154 28.9981 16.0671 28.9681 15.769C28.8581 14.9545 29.0081 14.7856 29.9881 14.5969C31.0881 14.3882 31.5481 14.3882 31.7481 14.6068ZM28.7081 16.5439C28.7781 16.9512 28.8181 18.9478 28.8181 22.0571V26.9445H27.2681H25.7181V21.4313V15.918H27.1581H28.5981L28.7081 16.5439ZM18.6781 16.4644C18.9781 16.6531 19.2781 16.9512 19.4681 17.2492L19.7681 17.7359V22.3651V26.9942L19.4981 27.4512C19.3481 27.6995 19.0381 28.0373 18.8081 28.1962L18.3881 28.4843L10.9781 28.5141C5.97807 28.5339 3.44807 28.5141 3.20807 28.4346C3.00807 28.3849 2.65807 28.1465 2.42807 27.928C1.71807 27.2227 1.70807 27.1035 1.73807 22.1167L1.76807 17.7558L2.03807 17.2988C2.31807 16.832 2.88807 16.3651 3.37807 16.2161C3.53807 16.1664 6.93807 16.1366 10.9281 16.1465L18.1881 16.1664L18.6781 16.4644ZM32.6081 18.6598C33.3481 22.6929 34.0381 26.6565 34.0081 26.6962C33.9381 26.7558 31.0881 27.2426 31.0481 27.2028C30.9781 27.1333 29.3181 17.7657 29.3481 17.6565C29.3781 17.577 32.2081 17.0008 32.2981 17.0604C32.3081 17.0704 32.4481 17.7856 32.6081 18.6598ZM23.4681 19.9214C24.0881 20.5373 24.0181 21.4909 23.3281 21.9478C22.9481 22.2061 22.3181 22.2459 21.9181 22.0472C21.5281 21.8485 21.2181 21.3121 21.2181 20.8253C21.2181 20.4677 21.2781 20.3286 21.5981 19.9909C21.9681 19.6134 22.0181 19.5935 22.5581 19.5935C23.0781 19.5935 23.1681 19.6233 23.4681 19.9214ZM23.1581 22.7227C23.6381 22.9512 23.9581 23.5671 23.8781 24.1035C23.6881 25.3055 22.0581 25.6432 21.4181 24.6101C20.7181 23.4776 21.9381 22.1465 23.1581 22.7227ZM34.2081 29.3684C34.0281 29.5373 33.7181 29.6366 32.9881 29.7657C32.0781 29.9247 31.9781 29.9247 31.7581 29.7757C31.4781 29.5969 31.3581 29.3286 31.2981 28.832L31.2681 28.4942L32.7681 28.2359L34.2681 27.9777L34.3581 28.5637C34.4381 29.1101 34.4281 29.1598 34.2081 29.3684ZM28.8181 28.981C28.8181 29.5472 28.7881 29.6664 28.5681 29.875C28.3381 30.1035 28.2581 30.1233 27.2681 30.1233C26.2781 30.1233 26.1981 30.1035 25.9681 29.875C25.7481 29.6664 25.7181 29.5472 25.7181 28.981V28.3353H27.2681H28.8181V28.981Z"
-              fill="black" />
-            <path
-              d="M13.3681 2.56704C12.3381 2.94453 11.8481 4.13658 12.3081 5.13989C12.9581 6.56042 14.8981 6.65976 15.6881 5.30877C16.2881 4.29552 15.8881 3.1134 14.7681 2.59685C14.2981 2.3783 13.9081 2.36837 13.3681 2.56704Z"
-              fill="black" />
-            <path
-              d="M9.06797 3.83857C8.41797 4.13658 7.91797 4.90148 7.91797 5.58691C7.91797 5.9942 8.19797 6.62996 8.51797 6.96771C9.02797 7.48426 10.018 7.63327 10.708 7.27565C12.028 6.61009 12.158 4.94122 10.968 4.03724C10.668 3.80877 10.468 3.74916 9.97797 3.7293C9.60797 3.70943 9.24797 3.74916 9.06797 3.83857Z"
-              fill="black" />
-            <path
-              d="M16.078 6.23261C15.868 6.30215 15.558 6.49089 15.398 6.64983C14.528 7.45447 14.648 8.94454 15.638 9.62003C15.988 9.86838 16.148 9.90811 16.728 9.90811C17.328 9.90811 17.438 9.87831 17.778 9.60016C18.388 9.11341 18.548 8.82533 18.598 8.18957C18.628 7.74255 18.598 7.51407 18.438 7.20613C18.178 6.70944 17.728 6.32202 17.238 6.18295C16.758 6.05381 16.558 6.06374 16.078 6.23261Z"
-              fill="black" />
-            <path
-              d="M12.9881 6.74918C12.8381 6.88825 12.9181 7.17633 13.1081 7.17633C13.3381 7.17633 13.4481 6.94785 13.2881 6.78891C13.1581 6.65977 13.0781 6.64984 12.9881 6.74918Z"
-              fill="black" />
-            <path
-              d="M12.7181 7.57368C12.4781 7.81209 12.4681 7.95116 12.6781 8.24917C12.8481 8.48758 13.2981 8.54719 13.4981 8.34851C13.6781 8.1697 13.6381 7.72268 13.4381 7.54387C13.1881 7.32533 12.9581 7.33527 12.7181 7.57368Z"
-              fill="black" />
-            <path
-              d="M11.858 7.82203C11.818 7.91143 11.838 8.03064 11.898 8.09024C12.048 8.23925 12.338 8.10017 12.298 7.9015C12.258 7.67302 11.938 7.61342 11.858 7.82203Z"
-              fill="black" />
-            <path
-              d="M13.9282 7.81208C13.8382 7.92135 13.8482 7.98096 13.9782 8.12003C14.1682 8.30877 14.3582 8.18956 14.2982 7.91142C14.2582 7.68294 14.0782 7.63327 13.9282 7.81208Z"
-              fill="black" />
-            <path
-              d="M9.16795 8.28889C8.67795 8.45777 8.24795 8.83525 8.02795 9.29221C7.35795 10.6531 8.48795 12.2127 9.99795 12.0041C11.8679 11.7558 12.2779 9.2624 10.5979 8.42797C10.0479 8.15976 9.65795 8.12002 9.16795 8.28889Z"
-              fill="black" />
-            <path
-              d="M12.8581 8.80547C12.7781 9.01408 12.8881 9.16309 13.1281 9.16309C13.2781 9.16309 13.3281 9.10348 13.2981 8.94454C13.2581 8.67633 12.9481 8.57699 12.8581 8.80547Z"
-              fill="black" />
-            <path
-              d="M13.218 9.76903C11.648 10.3949 11.488 12.4213 12.938 13.2359C14.398 14.0505 16.158 12.6796 15.728 11.0803C15.438 10.0273 14.198 9.38161 13.218 9.76903Z"
-              fill="black" />
-            <path
-              d="M26.718 17.8551C26.718 17.8849 26.718 19.5041 26.718 21.4512L26.708 25.0074H27.288H27.868V21.4313V17.8551L27.298 17.8253C26.978 17.8055 26.718 17.8154 26.718 17.8551Z"
-              fill="black" />
-            <path
-              d="M30.9681 18.9677C30.8081 18.9975 30.6381 19.0472 30.5981 19.0869C30.5281 19.1465 31.5681 25.1863 31.6681 25.3551C31.7081 25.4147 32.6981 25.2757 32.7981 25.2061C32.8081 25.1962 32.5781 23.7856 32.2681 22.077C31.9681 20.3783 31.7181 18.9578 31.7181 18.9379C31.7181 18.8982 31.4181 18.9081 30.9681 18.9677Z"
-              fill="black" />
-          </g>
-          <defs>
-            <clipPath id="clip0_2123_60">
-              <rect width="35" height="30" fill="white" transform="translate(0.0180664 0.520691)" />
-            </clipPath>
-          </defs>
-        </svg>
-        <h6
-          class="block antialiased tracking-normal poppins-semibold text-2xl font-semibold leading-relaxed text-zinc-800">
-          StoryStack
-        </h6>
-      </a>
-      <button
-        class="middle none poppins-semibold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-8 max-w-[32px] h-8 max-h-[32px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30 absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden"
-        type="button">
-        <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
-            aria-hidden="true" class="h-5 w-5 text-gray-400">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+  <body>
+    <section action="" class="poppins-medium" id="form_inicial"></section>
+    <aside
+      class="hidden bg-stone-100 -translate-x-80 fixed border-r-2 border-neutral-200 00 inset-0 z-50 h-full w-72 transition-transform duration-300 xl:translate-x-0"
+      id="dashboard"
+    >
+      <div class="relative border-b border-white/20">
+        <a class="flex items-center gap-4 py-6 px-8" href="#/">
+          <svg
+            class="w-16 h-16 fill-gray-800"
+            viewBox="0 0 36 31"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_2123_60)">
+              <path
+                d="M11.4681 0.669697C10.0181 0.927975 8.75807 1.59354 7.61807 2.70612C6.73807 3.56043 6.14807 4.4942 5.75807 5.63659C5.39807 6.68957 5.30807 8.55712 5.56807 9.70943C5.76807 10.6134 6.44807 12.0041 7.02807 12.6896L7.43807 13.1863L7.19807 13.3353C6.80807 13.5836 6.43807 14.0207 6.29807 14.3882L6.17807 14.726H3.59807H1.01807L0.618066 15.0836C0.388066 15.2922 0.178066 15.5902 0.118066 15.7988C0.0580664 16.0273 0.0180664 18.4909 0.0180664 22.4048C0.0180664 27.7889 0.0380664 28.6929 0.168066 29.0008C0.378066 29.4975 0.588066 29.7161 1.06807 29.9346C1.44807 30.1134 2.01807 30.1233 12.8481 30.1233C25.0181 30.1233 24.6081 30.1432 25.1381 29.6565C25.2981 29.5174 25.3181 29.5174 25.3181 29.6465C25.3181 29.726 25.4081 29.9147 25.5281 30.0637C25.7281 30.322 25.7381 30.322 27.1781 30.322C28.4881 30.322 28.6381 30.3022 28.8181 30.1233C29.0081 29.9346 29.0181 29.7856 29.0281 24.9876C29.0281 22.2657 29.0281 19.7525 29.0181 19.3949C28.9981 18.322 29.1681 18.8286 29.4981 20.8353C29.6781 21.8684 30.1081 24.3518 30.4581 26.3386C31.1981 30.5505 31.1281 30.3916 32.1681 30.2823C32.4981 30.2426 33.1481 30.1333 33.6081 30.0439C34.2981 29.9048 34.4881 29.8253 34.6481 29.6068L34.8481 29.3386L34.5281 27.5207C34.3581 26.5174 33.9681 24.2922 33.6681 22.5737C33.3581 20.8551 32.9581 18.5406 32.7681 17.4379C32.2381 14.428 32.2581 14.4975 32.0181 14.3088C31.7381 14.0902 31.6981 14.0902 30.3581 14.3286C29.2481 14.5372 28.9981 14.5273 29.0281 14.3088C29.0381 14.2392 29.0381 13.9015 29.0281 13.5538C29.0081 12.5803 28.9381 12.5406 27.1881 12.5406C25.3381 12.5406 25.3781 12.5008 25.3381 14.0902L25.2981 15.2227L24.9981 14.9743L24.6981 14.726H20.4981H16.2881L17.0281 14.2492C19.5381 12.62 20.8681 9.48096 20.2781 6.58029C19.9481 4.96109 19.2981 3.79884 18.0881 2.63659C16.2781 0.908108 13.9681 0.212744 11.4681 0.669697ZM14.6681 1.25579C16.0181 1.61341 17.5981 2.64652 18.3681 3.67963C19.7481 5.50745 20.1781 8.04056 19.4781 10.1068C18.6881 12.4114 16.7181 14.1796 14.3781 14.6863C13.1781 14.9445 11.6281 14.8452 10.5381 14.4478C8.89807 13.8419 7.49807 12.6399 6.73807 11.1697C6.10807 9.95778 5.97807 9.40149 5.97807 7.92135C5.96807 6.82864 6.00807 6.53062 6.19807 5.94453C7.04807 3.42135 8.88807 1.75248 11.4681 1.15645C12.2081 0.987577 13.8281 1.03725 14.6681 1.25579ZM28.5681 12.9876C28.7881 13.1962 28.8181 13.3154 28.8181 13.8816V14.5273H27.2681H25.7181V13.9214C25.7181 12.8783 25.8781 12.7591 27.3481 12.7492C28.2581 12.7392 28.3481 12.7591 28.5681 12.9876ZM8.41807 14.0306C8.57807 14.1399 8.89807 14.3386 9.13807 14.4776L9.56807 14.726H8.59807C7.50807 14.726 7.42807 14.6664 7.82807 14.12C8.06807 13.7723 8.05807 13.7823 8.41807 14.0306ZM31.7481 14.6068C31.8881 14.7558 32.1581 15.7194 32.0781 15.7889C32.0581 15.8187 29.2181 16.3154 29.0981 16.3154C29.0681 16.3154 28.9981 16.0671 28.9681 15.769C28.8581 14.9545 29.0081 14.7856 29.9881 14.5969C31.0881 14.3882 31.5481 14.3882 31.7481 14.6068ZM28.7081 16.5439C28.7781 16.9512 28.8181 18.9478 28.8181 22.0571V26.9445H27.2681H25.7181V21.4313V15.918H27.1581H28.5981L28.7081 16.5439ZM18.6781 16.4644C18.9781 16.6531 19.2781 16.9512 19.4681 17.2492L19.7681 17.7359V22.3651V26.9942L19.4981 27.4512C19.3481 27.6995 19.0381 28.0373 18.8081 28.1962L18.3881 28.4843L10.9781 28.5141C5.97807 28.5339 3.44807 28.5141 3.20807 28.4346C3.00807 28.3849 2.65807 28.1465 2.42807 27.928C1.71807 27.2227 1.70807 27.1035 1.73807 22.1167L1.76807 17.7558L2.03807 17.2988C2.31807 16.832 2.88807 16.3651 3.37807 16.2161C3.53807 16.1664 6.93807 16.1366 10.9281 16.1465L18.1881 16.1664L18.6781 16.4644ZM32.6081 18.6598C33.3481 22.6929 34.0381 26.6565 34.0081 26.6962C33.9381 26.7558 31.0881 27.2426 31.0481 27.2028C30.9781 27.1333 29.3181 17.7657 29.3481 17.6565C29.3781 17.577 32.2081 17.0008 32.2981 17.0604C32.3081 17.0704 32.4481 17.7856 32.6081 18.6598ZM23.4681 19.9214C24.0881 20.5373 24.0181 21.4909 23.3281 21.9478C22.9481 22.2061 22.3181 22.2459 21.9181 22.0472C21.5281 21.8485 21.2181 21.3121 21.2181 20.8253C21.2181 20.4677 21.2781 20.3286 21.5981 19.9909C21.9681 19.6134 22.0181 19.5935 22.5581 19.5935C23.0781 19.5935 23.1681 19.6233 23.4681 19.9214ZM23.1581 22.7227C23.6381 22.9512 23.9581 23.5671 23.8781 24.1035C23.6881 25.3055 22.0581 25.6432 21.4181 24.6101C20.7181 23.4776 21.9381 22.1465 23.1581 22.7227ZM34.2081 29.3684C34.0281 29.5373 33.7181 29.6366 32.9881 29.7657C32.0781 29.9247 31.9781 29.9247 31.7581 29.7757C31.4781 29.5969 31.3581 29.3286 31.2981 28.832L31.2681 28.4942L32.7681 28.2359L34.2681 27.9777L34.3581 28.5637C34.4381 29.1101 34.4281 29.1598 34.2081 29.3684ZM28.8181 28.981C28.8181 29.5472 28.7881 29.6664 28.5681 29.875C28.3381 30.1035 28.2581 30.1233 27.2681 30.1233C26.2781 30.1233 26.1981 30.1035 25.9681 29.875C25.7481 29.6664 25.7181 29.5472 25.7181 28.981V28.3353H27.2681H28.8181V28.981Z"
+                fill="black"
+              />
+              <path
+                d="M13.3681 2.56704C12.3381 2.94453 11.8481 4.13658 12.3081 5.13989C12.9581 6.56042 14.8981 6.65976 15.6881 5.30877C16.2881 4.29552 15.8881 3.1134 14.7681 2.59685C14.2981 2.3783 13.9081 2.36837 13.3681 2.56704Z"
+                fill="black"
+              />
+              <path
+                d="M9.06797 3.83857C8.41797 4.13658 7.91797 4.90148 7.91797 5.58691C7.91797 5.9942 8.19797 6.62996 8.51797 6.96771C9.02797 7.48426 10.018 7.63327 10.708 7.27565C12.028 6.61009 12.158 4.94122 10.968 4.03724C10.668 3.80877 10.468 3.74916 9.97797 3.7293C9.60797 3.70943 9.24797 3.74916 9.06797 3.83857Z"
+                fill="black"
+              />
+              <path
+                d="M16.078 6.23261C15.868 6.30215 15.558 6.49089 15.398 6.64983C14.528 7.45447 14.648 8.94454 15.638 9.62003C15.988 9.86838 16.148 9.90811 16.728 9.90811C17.328 9.90811 17.438 9.87831 17.778 9.60016C18.388 9.11341 18.548 8.82533 18.598 8.18957C18.628 7.74255 18.598 7.51407 18.438 7.20613C18.178 6.70944 17.728 6.32202 17.238 6.18295C16.758 6.05381 16.558 6.06374 16.078 6.23261Z"
+                fill="black"
+              />
+              <path
+                d="M12.9881 6.74918C12.8381 6.88825 12.9181 7.17633 13.1081 7.17633C13.3381 7.17633 13.4481 6.94785 13.2881 6.78891C13.1581 6.65977 13.0781 6.64984 12.9881 6.74918Z"
+                fill="black"
+              />
+              <path
+                d="M12.7181 7.57368C12.4781 7.81209 12.4681 7.95116 12.6781 8.24917C12.8481 8.48758 13.2981 8.54719 13.4981 8.34851C13.6781 8.1697 13.6381 7.72268 13.4381 7.54387C13.1881 7.32533 12.9581 7.33527 12.7181 7.57368Z"
+                fill="black"
+              />
+              <path
+                d="M11.858 7.82203C11.818 7.91143 11.838 8.03064 11.898 8.09024C12.048 8.23925 12.338 8.10017 12.298 7.9015C12.258 7.67302 11.938 7.61342 11.858 7.82203Z"
+                fill="black"
+              />
+              <path
+                d="M13.9282 7.81208C13.8382 7.92135 13.8482 7.98096 13.9782 8.12003C14.1682 8.30877 14.3582 8.18956 14.2982 7.91142C14.2582 7.68294 14.0782 7.63327 13.9282 7.81208Z"
+                fill="black"
+              />
+              <path
+                d="M9.16795 8.28889C8.67795 8.45777 8.24795 8.83525 8.02795 9.29221C7.35795 10.6531 8.48795 12.2127 9.99795 12.0041C11.8679 11.7558 12.2779 9.2624 10.5979 8.42797C10.0479 8.15976 9.65795 8.12002 9.16795 8.28889Z"
+                fill="black"
+              />
+              <path
+                d="M12.8581 8.80547C12.7781 9.01408 12.8881 9.16309 13.1281 9.16309C13.2781 9.16309 13.3281 9.10348 13.2981 8.94454C13.2581 8.67633 12.9481 8.57699 12.8581 8.80547Z"
+                fill="black"
+              />
+              <path
+                d="M13.218 9.76903C11.648 10.3949 11.488 12.4213 12.938 13.2359C14.398 14.0505 16.158 12.6796 15.728 11.0803C15.438 10.0273 14.198 9.38161 13.218 9.76903Z"
+                fill="black"
+              />
+              <path
+                d="M26.718 17.8551C26.718 17.8849 26.718 19.5041 26.718 21.4512L26.708 25.0074H27.288H27.868V21.4313V17.8551L27.298 17.8253C26.978 17.8055 26.718 17.8154 26.718 17.8551Z"
+                fill="black"
+              />
+              <path
+                d="M30.9681 18.9677C30.8081 18.9975 30.6381 19.0472 30.5981 19.0869C30.5281 19.1465 31.5681 25.1863 31.6681 25.3551C31.7081 25.4147 32.6981 25.2757 32.7981 25.2061C32.8081 25.1962 32.5781 23.7856 32.2681 22.077C31.9681 20.3783 31.7181 18.9578 31.7181 18.9379C31.7181 18.8982 31.4181 18.9081 30.9681 18.9677Z"
+                fill="black"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_2123_60">
+                <rect
+                  width="35"
+                  height="30"
+                  fill="white"
+                  transform="translate(0.0180664 0.520691)"
+                />
+              </clipPath>
+            </defs>
           </svg>
-        </span>
-      </button>
-    </div>
-    <div class="mt-4 mr-4 poppins-bold text-2xl text-gray-950">
-      <ul class="mb-4 flex flex-col gap-1">
-        <li>
-          <a aria-current="page" class="active" href="#">
-            <button
-              class="justify-around none poppins-semibold font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full bg-indigo-200 text-gray-800 shadow-md shadow-blue-200/20 hover:shadow-lg hover:shadow-blue-200/40 w-full flex items-center gap-4 pl-8 capitalize"
-              type="button">
-              <svg class="w-6 h-6 fill-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path
-                  d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
-              </svg>
-              <p
-                class="block antialiased poppins-semibold text-xl leading-relaxed text-inherit capitalize poppins-bold">
-                Home
-              </p>
-              <svg class="justify-self-end" width="40" height="40" viewBox="0 0 40 40" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <circle cx="19.6393" cy="19.587" r="19.5135" fill="white" />
-                <path
-                  d="M27.5238 20.4641C27.7313 20.2566 27.7313 19.9202 27.5238 19.7127L24.1424 16.3312C23.9349 16.1237 23.5985 16.1237 23.391 16.3312C23.1835 16.5387 23.1835 16.8752 23.391 17.0827L26.3967 20.0884L23.391 23.0941C23.1835 23.3016 23.1835 23.638 23.391 23.8455C23.5985 24.053 23.9349 24.053 24.1424 23.8455L27.5238 20.4641ZM12.1377 20.6197H27.1481V19.557H12.1377V20.6197Z"
-                  fill="#1A1A1A" />
-              </svg>
-            </button>
-          </a>
-        </li>
-        <li class="mt-4">
-          <a aria-current="page" class="active" href="#">
-            <button
-              class="middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"
-              type="button">
-              <svg class="w-6 h-6 fill-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                  d="M448 32l-86.1 0-1 1-127 127 92.1 0 1-1L453.8 32.3c-1.9-.2-3.8-.3-5.8-.3zm64 128l0-64c0-15.1-5.3-29.1-14-40l-104 104L512 160zM294.1 32l-92.1 0-1 1L73.9 160l92.1 0 1-1 127-127zM64 32C28.7 32 0 60.7 0 96l0 64 6.1 0 1-1 127-127L64 32zM512 192L0 192 0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-224z" />
-              </svg>
-              <p class="block antialiased text-xl leading-relaxed text-inherit capitalize poppins-medium">
-                Movies
-              </p>
-            </button>
-          </a>
-        </li>
-        <li class="mt-4">
-          <a aria-current="page" class="active" href="#">
-            <button
-              class="middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"
-              type="button">
-              <svg class="w-6 h-6 fill-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                  d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z" />
-              </svg>
-              <p class="block antialiased text-xl leading-relaxed text-inherit capitalize poppins-medium">
-                Books
-              </p>
-            </button>
-          </a>
-        </li>
-        <li class="mt-4">
-          <a aria-current="page" class="active" href="#">
-            <button
-              class="middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"
-              type="button">
-              <svg class="w-6 h-6 fill-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                  d="M64 64l0 288 512 0 0-288L64 64zM0 64C0 28.7 28.7 0 64 0L576 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64L64 416c-35.3 0-64-28.7-64-64L0 64zM128 448l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-384 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z" />
-              </svg>
-              <p class="block antialiased text-xl leading-relaxed text-inherit capitalize poppins-medium">
-                Series
-              </p>
-            </button>
-          </a>
-        </li>
-      </ul>
-      <ul class="mb-4 flex mt-96">
-        <li>
-          <a class="" href="#">
-            <button
-              class="h-full none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 capitalize pl-8 pr-32"
-              type="button">
-              <svg class="w-6 h-6 fill-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                  d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z" />
-              </svg>
-              <p class="block antialiased poppins-semibold text-xl leading-relaxed text-gray-400 capitalize">
-                Logout
-              </p>
-            </button>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </aside>
-  <main class="xl:ml-72 mb-4 mr-4 hidden" id="main">
-    <section class="p-4 flex">
-      <input
-        class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
-        placeholder="  🔍︎  Búsqueda Por Nombre..." type="text" name="search_bar" id="search_bar" />
-      <button class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden">
-        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z" />
-        </svg>
-      </button>
-    </section>
-    <form action="" class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between">
-      <button
-        class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl">
-        Estado
-      </button>
-      <button
-        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl">
-        Genero
-      </button>
-      <button
-        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl">
-        Plataforma
-      </button>
-    </form>
-    <form action="" class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2">
-      <button
-        class="bg-yellow-200 w-64 h-16 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-        id="boton_crear_recuros">
-        Crear
-      </button>
-    </form>
-    <section id="filtros-secciones">
-      <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="en-progreso">
-        <h5 class="poppins-medium text-medium flex w-full mb-8">
-          <svg class="w-6 h-6 mr-4 fill-lime-300" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="11.6428" cy="11" r="11" />
-          </svg>En Progreso
-        </h5>
+          <h6
+            class="block antialiased tracking-normal poppins-semibold text-2xl font-semibold leading-relaxed text-zinc-800"
+          >
+            StoryStack
+          </h6>
+        </a>
+        <button
+          class="middle none poppins-semibold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-8 max-w-[32px] h-8 max-h-[32px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30 absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden"
+          type="button"
+        >
+          <span
+            class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              aria-hidden="true"
+              class="h-5 w-5 text-gray-400"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+      <div class="mt-4 mr-4 poppins-bold text-2xl text-gray-950">
+        <ul class="mb-4 flex flex-col gap-1">
+          <li>
+            <a aria-current="page" class="active" href="#">
+              <button
+                class="justify-around none poppins-semibold font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full bg-indigo-200 text-gray-800 shadow-md shadow-blue-200/20 hover:shadow-lg hover:shadow-blue-200/40 w-full flex items-center gap-4 pl-8 capitalize"
+                type="button"
+              >
+                <svg
+                  class="w-6 h-6 fill-gray-800"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                >
+                  <path
+                    d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+                  />
+                </svg>
+                <p
+                  class="block antialiased poppins-semibold text-xl leading-relaxed text-inherit capitalize poppins-bold"
+                >
+                  Home
+                </p>
+                <svg
+                  class="justify-self-end"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="19.6393" cy="19.587" r="19.5135" fill="white" />
+                  <path
+                    d="M27.5238 20.4641C27.7313 20.2566 27.7313 19.9202 27.5238 19.7127L24.1424 16.3312C23.9349 16.1237 23.5985 16.1237 23.391 16.3312C23.1835 16.5387 23.1835 16.8752 23.391 17.0827L26.3967 20.0884L23.391 23.0941C23.1835 23.3016 23.1835 23.638 23.391 23.8455C23.5985 24.053 23.9349 24.053 24.1424 23.8455L27.5238 20.4641ZM12.1377 20.6197H27.1481V19.557H12.1377V20.6197Z"
+                    fill="#1A1A1A"
+                  />
+                </svg>
+              </button>
+            </a>
+          </li>
+          <li class="mt-4">
+            <a aria-current="page" class="active" href="#">
+              <button
+                class="middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"
+                type="button"
+              >
+                <svg
+                  class="w-6 h-6 fill-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M448 32l-86.1 0-1 1-127 127 92.1 0 1-1L453.8 32.3c-1.9-.2-3.8-.3-5.8-.3zm64 128l0-64c0-15.1-5.3-29.1-14-40l-104 104L512 160zM294.1 32l-92.1 0-1 1L73.9 160l92.1 0 1-1 127-127zM64 32C28.7 32 0 60.7 0 96l0 64 6.1 0 1-1 127-127L64 32zM512 192L0 192 0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-224z"
+                  />
+                </svg>
+                <p
+                  class="block antialiased text-xl leading-relaxed text-inherit capitalize poppins-medium"
+                >
+                  Movies
+                </p>
+              </button>
+            </a>
+          </li>
+          <li class="mt-4">
+            <a aria-current="page" class="active" href="#">
+              <button
+                class="middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"
+                type="button"
+              >
+                <svg
+                  class="w-6 h-6 fill-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96l288 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-64c17.7 0 32-14.3 32-32l0-320c0-17.7-14.3-32-32-32L384 0 96 0zm0 384l256 0 0 64L96 448c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16zm16 48l192 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-192 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"
+                  />
+                </svg>
+                <p
+                  class="block antialiased text-xl leading-relaxed text-inherit capitalize poppins-medium"
+                >
+                  Books
+                </p>
+              </button>
+            </a>
+          </li>
+          <li class="mt-4">
+            <a aria-current="page" class="active" href="#">
+              <button
+                class="middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"
+                type="button"
+              >
+                <svg
+                  class="w-6 h-6 fill-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 512"
+                >
+                  <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M64 64l0 288 512 0 0-288L64 64zM0 64C0 28.7 28.7 0 64 0L576 0c35.3 0 64 28.7 64 64l0 288c0 35.3-28.7 64-64 64L64 416c-35.3 0-64-28.7-64-64L0 64zM128 448l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-384 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"
+                  />
+                </svg>
+                <p
+                  class="block antialiased text-xl leading-relaxed text-inherit capitalize poppins-medium"
+                >
+                  Series
+                </p>
+              </button>
+            </a>
+          </li>
+        </ul>
+        <ul class="mb-4 flex mt-96">
+          <li>
+            <a class="" href="#">
+              <button
+                class="h-full none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 capitalize pl-8 pr-32"
+                type="button"
+              >
+                <svg
+                  class="w-6 h-6 fill-gray-400"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+                  />
+                </svg>
+                <p
+                  class="block antialiased poppins-semibold text-xl leading-relaxed text-gray-400 capitalize"
+                >
+                  Logout
+                </p>
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <main class="xl:ml-72 mb-4 mr-4 hidden" id="main">
+      <section class="p-4 flex">
+        <input
+          class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+          placeholder="  🔍︎  Búsqueda Por Nombre..."
+          type="text"
+          name="search_bar"
+          id="search_bar"
+        />
+        <button
+          class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+        >
+          <svg
+            class="w-8 h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </button>
       </section>
-      <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4" id="pendiente">
-        <h5 class="poppins-medium text-medium flex w-full mb-8">
-          <svg class="w-6 h-6 mr-4 fill-yellow-300" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="11.6428" cy="11" r="11" />
-          </svg>Pendiente
-        </h5>
-        <figure class="flex gap-x-4 p-4 border-2 rounded-xl">
-          <img id="Img_recurso" class="w-32" src="https://www.penguinlibros.com/co/3117351/en-agosto-nos-vemos.jpg"
-            alt="En Agosto Nos Vemos" />
-          <figcaption class="h-full gap-y-2 flex flex-col">
-            <h6 id="Titulo_recurso" class="poppins-medium">
-              En Agosto Nos Vemos
-            </h6>
-            <section id="Estado_recurso">
-              <h5 class="poppins-medium text-sm flex w-full">
-                <figure>
-                  <svg class="w-4 h-4 mr-2 fill-yellow-300" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="11.6428" cy="11" r="11" />
-                  </svg>
-                </figure>
-                Pendientes
-              </h5>
-            </section>
-            <section id="Tags_recurso">
-              <h5 class="poppins-medium text-sm flex w-full">
-                <figure>
-                  <svg class="w-4 h-4 mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path
-                      d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128l95.1 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0L325.8 320l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7-95.1 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384 32 384c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 21.3-128L64 192c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320l95.1 0 21.3-128-95.1 0z" />
-                  </svg>
-                </figure>
-                <ul>
-                  <li class="bg-fuchsia-300 px-1 rounded-lg my-1">
-                    Realismo Mágico
-                  </li>
-                  <li class="bg-cyan-300 px-1 rounded-lg w-fit my-1">
-                    Drama
-                  </li>
-                  <li class="bg-red-300 px-1 rounded-lg w-fit my-1">
-                    Romance
-                  </li>
-                </ul>
-              </h5>
-            </section>
-            <section id="Plataforma_recurso">
-              <h5 class="poppins-medium text-sm flex w-full">
-                <figure>
-                  <svg class="w-4 h-4 mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path
-                      d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z" />
-                  </svg>
-                </figure>
-                <ul>
-                  <li class="bg-yellow-400 px-1 rounded-lg my-1">Kindle</li>
-                </ul>
-              </h5>
-            </section>
-          </figcaption>
-        </figure>
-      </section>
-      <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4" id="terminado">
-        <h5 class="poppins-medium text-medium flex w-full mb-8">
-          <svg class="w-6 h-6 mr-4 fill-red-300" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="11.6428" cy="11" r="11" />
-          </svg>Terminado
-        </h5>
-        <figure class="flex gap-x-4 p-4 border-2 rounded-xl">
-          <img id="Img_recurso" class="w-32" src="https://www.penguinlibros.com/co/3117351/en-agosto-nos-vemos.jpg"
-            alt="En Agosto Nos Vemos" />
-          <figcaption class="h-full gap-y-2 flex flex-col">
-            <h6 id="Titulo_recurso" class="poppins-medium">
-              En Agosto Nos Vemos
-            </h6>
-            <section id="Estado_recurso">
-              <h5 class="poppins-medium text-sm flex w-full">
-                <figure>
-                  <svg class="w-4 h-4 mr-2 fill-red-300" viewBox="0 0 23 22" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="11.6428" cy="11" r="11" />
-                  </svg>
-                </figure>
-                Terminado
-              </h5>
-            </section>
-            <section id="Tags_recurso">
-              <h5 class="poppins-medium text-sm flex w-full">
-                <figure>
-                  <svg class="w-4 h-4 mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path
-                      d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128l95.1 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0L325.8 320l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7-95.1 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384 32 384c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 21.3-128L64 192c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320l95.1 0 21.3-128-95.1 0z" />
-                  </svg>
-                </figure>
-                <ul>
-                  <li class="bg-fuchsia-300 px-1 rounded-lg my-1">
-                    Realismo Mágico
-                  </li>
-                  <li class="bg-cyan-300 px-1 rounded-lg w-fit my-1">
-                    Drama
-                  </li>
-                  <li class="bg-red-300 px-1 rounded-lg w-fit my-1">
-                    Romance
-                  </li>
-                </ul>
-              </h5>
-            </section>
-            <section id="Plataforma_recurso">
-              <h5 class="poppins-medium text-sm flex w-full">
-                <figure>
-                  <svg class="w-4 h-4 mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path
-                      d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z" />
-                  </svg>
-                </figure>
-                <ul>
-                  <li class="bg-yellow-400 px-1 rounded-lg my-1">Kindle</li>
-                </ul>
-              </h5>
-            </section>
-          </figcaption>
-        </figure>
-      </section>
-    </section>
-    <div role="dialog"
-      class="z-50 fixed top-0 w-full h-screen w-screen bg-slate-500/50 grid justify-center items-center invisible"
-      id="dialog_crear_recurso">
-      <form action=""
-        class="poppins-medium flex flex-col bg-white w-9/12 h-5/6 p-8 rounded-lg gap-y-2 overflow-auto xl:m-0 mx-auto"
-        id="formCrearRecurso">
-        <input required type="text" placeholder="Nombre del Recurso" id="form_nombre_recurso" />
-        <input required type="url" placeholder="Url Portada" id="url_recurso" />
-        <section>
-          <h6>Formato:</h6>
-          <label class="inline-flex items-center mt-3 items-center bg-emerald-400 p-1 rounded-lg" for="Libro">Libro
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-400 checked:bg-white checked:before:bg-emerald-400 hover:before:opacity-10 ml-1"
-              type="radio" name="formato" id="Libro" value="Libro" />
-          </label>
-          <label class="inline-flex items-center mt-3 items-center bg-violet-400 p-1 rounded-lg" for="Serie">Serie
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-violet-400 checked:bg-white checked:before:bg-violet-400 hover:before:opacity-10 ml-1"
-              type="radio" name="formato" id="Serie" value="Serie" />
-          </label>
-          <label class="inline-flex items-center mt-3 items-center bg-rose-400 p-1 rounded-lg" for="Película">Película
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rose-400 checked:bg-white checked:before:bg-rose-400 hover:before:opacity-10 ml-1"
-              type="radio" name="formato" id="Película" value="Película" />
-          </label>
-        </section>
-        <section>
-          <h6>Géneros:</h6>
-          <label class="inline-flex items-center mt-3 bg-orange-300 p-1 rounded-lg" for="Accion">Acción
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-300 checked:bg-white checked:before:bg-orange-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Accion" value="Accion" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-lime-300 p-1 rounded-lg" for="Comedia">Comedia
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Comedia" value="Comedia" /></label>
-          <label class="inline-flex items-center mt-3 bg-red-300 p-1 rounded-lg" for="Drama">Drama
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Drama" value="Drama" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-purple-300 p-1 rounded-lg" for="Terror">Terror
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple-300 checked:bg-white checked:before:bg-purple-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Terror" value="Terror" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-green-300 p-1 rounded-lg" for="CienciaFiccion">Ciencia Ficción
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-300 checked:bg-white checked:before:bg-green-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="CienciaFiccion" value="CienciaFiccion" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-sky-300 p-1 rounded-lg" for="Aventura">Aventura
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-300 checked:bg-white checked:before:bg-sky-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Aventura" value="Aventura" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-indigo-300 p-1 rounded-lg" for="Fantasia">Fantasía
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-indigo-300 checked:bg-white checked:before:bg-indigo-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Fantasia" value="Fantasia" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-pink-300 p-1 rounded-lg" for="Romance">Romance
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-300 checked:bg-white checked:before:bg-pink-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Romance" value="Romance" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-emerald-400 p-1 rounded-lg" for="Thriller">Thriller
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-300 checked:bg-white checked:before:bg-emerald-500 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Thriller" value="Thriller" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-slate-300 p-1 rounded-lg" for="Suspense">Suspense
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Suspense" value="Suspense" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-zinc-300 p-1 rounded-lg" for="Western">Western
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-zinc-300 checked:bg-white checked:before:bg-zinc-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos" id="Western" value="Western" /></label>
-        </section>
-        <section>
-          <h6>Plataformas:</h6>
-          <!-- Netflix -->
-          <label class="inline-flex items-center mt-3 items-center bg-red-500 p-1 rounded-lg" for="Netflix">Netflix
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-500 checked:bg-white checked:before:bg-red-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie" id="Netflix" value="Netflix" />
-          </label>
-
-          <!-- Amazon Prime Video -->
-          <label class="inline-flex items-center mt-3 items-center bg-yellow-400 p-1 rounded-lg"
-            for="AmazonPrime">Amazon Prime Video
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-yellow-500 checked:bg-white checked:before:bg-yellow-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie" id="AmazonPrime" value="AmazonPrime" />
-          </label>
-
-          <!-- Disney+ -->
-          <label class="inline-flex items-center mt-3 items-center bg-blue-500 p-1 rounded-lg" for="DisneyPlus">Disney+
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-white checked:before:bg-blue-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie" id="DisneyPlus" value="DisneyPlus" />
-          </label>
-
-          <!-- HBO Max -->
-          <label class="inline-flex items-center mt-3 items-center bg-purple-500 p-1 rounded-lg" for="HBOMax">HBO Max
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple-500 checked:bg-white checked:before:bg-purple-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie" id="Max" value="HBOMax" />
-          </label>
-
-          <!-- Apple TV+ -->
-          <label class="inline-flex items-center mt-3 items-center bg-pink-500 p-1 rounded-lg" for="AppleTVPlus">Apple
-            TV+
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-white checked:before:bg-pink-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie" id="AppleTVPlus" value="AppleTVPlus" />
-          </label>
-
-          <!-- Hulu -->
-          <label class="inline-flex items-center mt-3 items-center bg-green-500 p-1 rounded-lg" for="Hulu">Hulu
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-500 checked:bg-white checked:before:bg-green-500 hover:before:opacity-10 ml-1"
-              type="checkbox" value="Hulu" name="Plataforma_Peli_Serie" id="Hulu" />
-          </label>
-
-          <!-- Paramount+ -->
-          <label class="inline-flex items-center mt-3 items-center bg-sky-500 p-1 rounded-lg"
-            for="ParamountPlus">Paramount+
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-500 checked:bg-white checked:before:bg-sky-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie" value="ParamountPlus" id="ParamountPlus" />
-          </label>
-        </section>
-        <section>
-          <h6>Plataformas Libros:</h6>
-          <label class="inline-flex items-center mt-3 items-center bg-amber-400 p-1 rounded-lg" for="Kindle">Kindle
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-amber-400 checked:bg-white checked:before:bg-amber-400 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie" id="Kindle" value="Kindle" />
-          </label>
-          <label class="inline-flex items-center mt-3 items-center bg-pink-500 p-1 rounded-lg" for="AppleBooks">Apple
-            Books
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-white checked:before:bg-pink-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie" id="AppleBooks" value="AppleBooks" />
-          </label>
-        </section>
-        <section>
-          <h6>Estado:</h6>
-          <label class="inline-flex items-center mt-3 items-center bg-lime-300 p-1 rounded-lg" for="En_progreso">En
-            progreso
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-lime-300 checked:bg-white checked:before:bg-lime-300 hover:before:opacity-10 ml-1"
-              type="radio" name="Estado" id="En_progreso" value="En_progreso" />
-          </label>
-          <label class="inline-flex items-center mt-3 items-center bg-yellow-300 p-1 rounded-lg"
-            for="Pendiente">Pendiente
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-10 ml-1"
-              type="radio" name="Estado" id="Pendiente" value="Pendiente" />
-          </label>
-        </section>
-        <button type="submit" class="bg-yellow-200 h-full rounded-lg py-2" id="botonCrearManadarForm">
-          Agregar
+      <form
+        action=""
+        class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
+      >
+        <button
+          class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+        >
+          Estado
+        </button>
+        <button
+          class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+        >
+          Genero
+        </button>
+        <button
+          class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+        >
+          Plataforma
         </button>
       </form>
-    </div>
-    <div role="dialog"
-      class="z-50 fixed top-0 w-full h-screen w-screen bg-slate-500/50 grid justify-center items-center invisible"
-      id="dialog_editar_recurso">
-      <form action=""
-        class="poppins-medium flex flex-col bg-white w-9/12 h-5/6 p-8 rounded-lg gap-y-2 overflow-auto xl:m-0 mx-auto"
-        id="formEditarRecurso">
-        <input required type="text" placeholder="Nombre del Recurso" id="form_nombre_recurso_editar" />
-        <input required type="url" placeholder="Url Portada" id="url_recurso_editar" />
-        <section>
-          <h6>Formato:</h6>
-          <label class="inline-flex items-center mt-3 items-center bg-emerald-400 p-1 rounded-lg" for="Libro">Libro
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-400 checked:bg-white checked:before:bg-emerald-400 hover:before:opacity-10 ml-1"
-              type="radio" name="formato_editar" id="Libro" value="Libro" />
-          </label>
-          <label class="inline-flex items-center mt-3 items-center bg-violet-400 p-1 rounded-lg" for="Serie">Serie
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-violet-400 checked:bg-white checked:before:bg-violet-400 hover:before:opacity-10 ml-1"
-              type="radio" name="formato_editar" id="Serie" value="Serie" />
-          </label>
-          <label class="inline-flex items-center mt-3 items-center bg-rose-400 p-1 rounded-lg" for="Película">Película
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rose-400 checked:bg-white checked:before:bg-rose-400 hover:before:opacity-10 ml-1"
-              type="radio" name="formato_editar" id="Película" value="Película" />
-          </label>
-        </section>
-        <section>
-          <h6>Géneros:</h6>
-          <label class="inline-flex items-center mt-3 bg-orange-300 p-1 rounded-lg" for="Accion">Acción
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-300 checked:bg-white checked:before:bg-orange-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Accion" value="Accion" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-lime-300 p-1 rounded-lg" for="Comedia">Comedia
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Comedia" value="Comedia" /></label>
-          <label class="inline-flex items-center mt-3 bg-red-300 p-1 rounded-lg" for="Drama">Drama
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Drama" value="Drama" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-purple-300 p-1 rounded-lg" for="Terror">Terror
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple-300 checked:bg-white checked:before:bg-purple-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Terror" value="Terror" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-green-300 p-1 rounded-lg" for="CienciaFiccion">Ciencia Ficción
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-300 checked:bg-white checked:before:bg-green-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="CienciaFiccion" value="CienciaFiccion" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-sky-300 p-1 rounded-lg" for="Aventura">Aventura
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-300 checked:bg-white checked:before:bg-sky-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Aventura" value="Aventura" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-indigo-300 p-1 rounded-lg" for="Fantasia">Fantasía
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-indigo-300 checked:bg-white checked:before:bg-indigo-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Fantasia" value="Fantasia" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-pink-300 p-1 rounded-lg" for="Romance">Romance
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-300 checked:bg-white checked:before:bg-pink-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Romance" value="Romance" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-emerald-400 p-1 rounded-lg" for="Thriller">Thriller
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-300 checked:bg-white checked:before:bg-emerald-500 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Thriller" value="Thriller" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-slate-300 p-1 rounded-lg" for="Suspense">Suspense
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Suspense" value="Suspense" /></label>
-
-          <label class="inline-flex items-center mt-3 bg-zinc-300 p-1 rounded-lg" for="Western">Western
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-zinc-300 checked:bg-white checked:before:bg-zinc-300 hover:before:opacity-20 ml-1"
-              type="checkbox" name="generos_editar" id="Western" value="Western" /></label>
-        </section>
-        <section>
-          <h6>Plataformas:</h6>
-          <!-- Netflix -->
-          <label class="inline-flex items-center mt-3 items-center bg-red-500 p-1 rounded-lg" for="Netflix">Netflix
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-500 checked:bg-white checked:before:bg-red-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie" id="Netflix" value="Netflix" />
-          </label>
-
-          <!-- Amazon Prime Video -->
-          <label class="inline-flex items-center mt-3 items-center bg-yellow-400 p-1 rounded-lg"
-            for="AmazonPrime">Amazon Prime Video
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-yellow-500 checked:bg-white checked:before:bg-yellow-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie_editar" id="AmazonPrime" value="AmazonPrime" />
-          </label>
-
-          <!-- Disney+ -->
-          <label class="inline-flex items-center mt-3 items-center bg-blue-500 p-1 rounded-lg" for="DisneyPlus">Disney+
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-white checked:before:bg-blue-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie_editar" id="DisneyPlus" value="DisneyPlus" />
-          </label>
-
-          <!-- HBO Max -->
-          <label class="inline-flex items-center mt-3 items-center bg-purple-500 p-1 rounded-lg" for="HBOMax">HBO Max
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple-500 checked:bg-white checked:before:bg-purple-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie_editar" id="Max" value="HBOMax" />
-          </label>
-
-          <!-- Apple TV+ -->
-          <label class="inline-flex items-center mt-3 items-center bg-pink-500 p-1 rounded-lg" for="AppleTVPlus">Apple
-            TV+
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-white checked:before:bg-pink-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie_editar" id="AppleTVPlus" value="AppleTVPlus" />
-          </label>
-
-          <!-- Hulu -->
-          <label class="inline-flex items-center mt-3 items-center bg-green-500 p-1 rounded-lg" for="Hulu">Hulu
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-500 checked:bg-white checked:before:bg-green-500 hover:before:opacity-10 ml-1"
-              type="checkbox" value="Hulu" name="Plataforma_Peli_Serie_editar" id="Hulu" />
-          </label>
-
-          <!-- Paramount+ -->
-          <label class="inline-flex items-center mt-3 items-center bg-sky-500 p-1 rounded-lg"
-            for="ParamountPlus">Paramount+
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-500 checked:bg-white checked:before:bg-sky-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie_editar" value="ParamountPlus" id="ParamountPlus" />
-          </label>
-        </section>
-        <section>
-          <h6>Plataformas Libros:</h6>
-          <label class="inline-flex items-center mt-3 items-center bg-amber-400 p-1 rounded-lg" for="Kindle">Kindle
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-amber-400 checked:bg-white checked:before:bg-amber-400 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie_editar" id="Kindle" value="Kindle" />
-          </label>
-          <label class="inline-flex items-center mt-3 items-center bg-pink-500 p-1 rounded-lg" for="AppleBooks">Apple
-            Books
-            <input
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-white checked:before:bg-pink-500 hover:before:opacity-10 ml-1"
-              type="checkbox" name="Plataforma_Peli_Serie_editar" id="AppleBooks" value="AppleBooks" />
-          </label>
-        </section>
-        <section>
-          <h6>Estado:</h6>
-          <label class="inline-flex items-center mt-3 items-center bg-lime-300 p-1 rounded-lg" for="En_progreso">En
-            progreso
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-lime-300 checked:bg-white checked:before:bg-lime-300 hover:before:opacity-10 ml-1"
-              type="radio" name="Estado_editar" id="En_progreso" value="En_progreso" />
-          </label>
-          <label class="inline-flex items-center mt-3 items-center bg-yellow-300 p-1 rounded-lg"
-            for="Pendiente">Pendiente
-            <input required
-              class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-10 ml-1"
-              type="radio" name="Estado_editar" id="Pendiente" value="Pendiente" />
-          </label>
-        </section>
-        <button type="submit" class="bg-yellow-200 h-full rounded-lg py-2" id="botonEditarManadarForm">
-          Editar
+      <form
+        action=""
+        class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2"
+      >
+        <button
+          class="bg-yellow-200 w-64 h-16 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+          id="boton_crear_recuros"
+        >
+          Crear
         </button>
       </form>
-    </div>
-    <div role="dialog" class="z-50 fixed top-0 w-full h-screen w-screen bg-slate-500/50 grid justify-center items-center invisible" id="dialog_terminar_recurso">
-      <form action=""
-        class="poppins-medium flex flex-col bg-white w-96 h-3/6 p-8 rounded-lg gap-y-2 overflow-auto xl:m-0 mx-auto"
-        id="formTerminarRecurso">
-        <section>
-          <label for="fecha-terminación">
-            Fecha de Terminación:
-            <input required type="date" name="fecha-terminación" id="fecha-terminación" max="2024-08-27"
-              class="bg-pink-300 p-1 rounded-lg" />
-          </label>
+      <section id="filtros-secciones">
+        <section
+          class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"
+          id="en-progreso"
+        >
+          <h5 class="poppins-medium text-medium flex w-full mb-8">
+            <svg
+              class="w-6 h-6 mr-4 fill-lime-300"
+              viewBox="0 0 23 22"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="11.6428" cy="11" r="11" /></svg
+            >En Progreso
+          </h5>
         </section>
-        <section>
-          <label for="valoracion-final">
-            Valoración Final:
-            <input required type="range" name="valoracion-final" id="valoracion-final" max="5" min="1" />
-          </label>
+        <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4" id="pendiente">
+          <h5 class="poppins-medium text-medium flex w-full mb-8">
+            <svg
+              class="w-6 h-6 mr-4 fill-yellow-300"
+              viewBox="0 0 23 22"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="11.6428" cy="11" r="11" /></svg
+            >Pendiente
+          </h5>
+          <figure class="flex gap-x-4 p-4 border-2 rounded-xl">
+            <img
+              id="Img_recurso"
+              class="w-32"
+              src="https://www.penguinlibros.com/co/3117351/en-agosto-nos-vemos.jpg"
+              alt="En Agosto Nos Vemos"
+            />
+            <figcaption class="h-full gap-y-2 flex flex-col">
+              <h6 id="Titulo_recurso" class="poppins-medium">
+                En Agosto Nos Vemos
+              </h6>
+              <section id="Estado_recurso">
+                <h5 class="poppins-medium text-sm flex w-full">
+                  <figure>
+                    <svg
+                      class="w-4 h-4 mr-2 fill-yellow-300"
+                      viewBox="0 0 23 22"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="11.6428" cy="11" r="11" />
+                    </svg>
+                  </figure>
+                  Pendientes
+                </h5>
+              </section>
+              <section id="Tags_recurso">
+                <h5 class="poppins-medium text-sm flex w-full">
+                  <figure>
+                    <svg
+                      class="w-4 h-4 mr-2 mt-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    >
+                      <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                      <path
+                        d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128l95.1 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0L325.8 320l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7-95.1 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384 32 384c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 21.3-128L64 192c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320l95.1 0 21.3-128-95.1 0z"
+                      />
+                    </svg>
+                  </figure>
+                  <ul>
+                    <li class="bg-fuchsia-300 px-1 rounded-lg my-1">
+                      Realismo Mágico
+                    </li>
+                    <li class="bg-cyan-300 px-1 rounded-lg w-fit my-1">
+                      Drama
+                    </li>
+                    <li class="bg-red-300 px-1 rounded-lg w-fit my-1">
+                      Romance
+                    </li>
+                  </ul>
+                </h5>
+              </section>
+              <section id="Plataforma_recurso">
+                <h5 class="poppins-medium text-sm flex w-full">
+                  <figure>
+                    <svg
+                      class="w-4 h-4 mr-2 mt-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                      <path
+                        d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"
+                      />
+                    </svg>
+                  </figure>
+                  <ul>
+                    <li class="bg-yellow-400 px-1 rounded-lg my-1">Kindle</li>
+                  </ul>
+                </h5>
+              </section>
+            </figcaption>
+          </figure>
         </section>
-        <section>
-          <label for="valoracion-final">
-            Reseña:
-            <textarea required name="Resenia" id="Resenia"
-              class="w-full h-16 resize-none border-2 rounded-lg border-gray-300"></textarea>
-          </label>
+        <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4" id="terminado">
+          <h5 class="poppins-medium text-medium flex w-full mb-8">
+            <svg
+              class="w-6 h-6 mr-4 fill-red-300"
+              viewBox="0 0 23 22"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="11.6428" cy="11" r="11" /></svg
+            >Terminado
+          </h5>
+          <figure class="flex gap-x-4 p-4 border-2 rounded-xl">
+            <img
+              id="Img_recurso"
+              class="w-32"
+              src="https://www.penguinlibros.com/co/3117351/en-agosto-nos-vemos.jpg"
+              alt="En Agosto Nos Vemos"
+            />
+            <figcaption class="h-full gap-y-2 flex flex-col">
+              <h6 id="Titulo_recurso" class="poppins-medium">
+                En Agosto Nos Vemos
+              </h6>
+              <section id="Estado_recurso">
+                <h5 class="poppins-medium text-sm flex w-full">
+                  <figure>
+                    <svg
+                      class="w-4 h-4 mr-2 fill-red-300"
+                      viewBox="0 0 23 22"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="11.6428" cy="11" r="11" />
+                    </svg>
+                  </figure>
+                  Terminado
+                </h5>
+              </section>
+              <section id="Tags_recurso">
+                <h5 class="poppins-medium text-sm flex w-full">
+                  <figure>
+                    <svg
+                      class="w-4 h-4 mr-2 mt-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    >
+                      <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                      <path
+                        d="M181.3 32.4c17.4 2.9 29.2 19.4 26.3 36.8L197.8 128l95.1 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3s29.2 19.4 26.3 36.8L357.8 128l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0L325.8 320l58.2 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-68.9 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8l9.8-58.7-95.1 0-11.5 69.3c-2.9 17.4-19.4 29.2-36.8 26.3s-29.2-19.4-26.3-36.8L90.2 384 32 384c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 21.3-128L64 192c-17.7 0-32-14.3-32-32s14.3-32 32-32l68.9 0 11.5-69.3c2.9-17.4 19.4-29.2 36.8-26.3zM187.1 192L165.8 320l95.1 0 21.3-128-95.1 0z"
+                      />
+                    </svg>
+                  </figure>
+                  <ul>
+                    <li class="bg-fuchsia-300 px-1 rounded-lg my-1">
+                      Realismo Mágico
+                    </li>
+                    <li class="bg-cyan-300 px-1 rounded-lg w-fit my-1">
+                      Drama
+                    </li>
+                    <li class="bg-red-300 px-1 rounded-lg w-fit my-1">
+                      Romance
+                    </li>
+                  </ul>
+                </h5>
+              </section>
+              <section id="Plataforma_recurso">
+                <h5 class="poppins-medium text-sm flex w-full">
+                  <figure>
+                    <svg
+                      class="w-4 h-4 mr-2 mt-1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512"
+                    >
+                      <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                      <path
+                        d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9l0 176c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"
+                      />
+                    </svg>
+                  </figure>
+                  <ul>
+                    <li class="bg-yellow-400 px-1 rounded-lg my-1">Kindle</li>
+                  </ul>
+                </h5>
+              </section>
+            </figcaption>
+          </figure>
         </section>
-        <button type="submit" class="bg-rose-200 h-full rounded-lg py-2" id="botonTerminarRecurso">
-          Recurso Terminado
-        </button>
-      </form>
-    </div>
-  </main>
-</body>
+      </section>
+      <div
+        role="dialog"
+        class="z-50 fixed top-0 w-full h-screen w-screen bg-slate-500/50 grid justify-center items-center invisible"
+        id="dialog_crear_recurso"
+      >
+        <form
+          action=""
+          class="poppins-medium flex flex-col bg-white w-9/12 h-5/6 p-8 rounded-lg gap-y-2 overflow-auto xl:m-0 mx-auto"
+          id="formCrearRecurso"
+        >
+          <input
+            required
+            type="text"
+            placeholder="Nombre del Recurso"
+            id="form_nombre_recurso"
+          />
+          <input
+            required
+            type="url"
+            placeholder="Url Portada"
+            id="url_recurso"
+          />
+          <section>
+            <h6>Formato:</h6>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-emerald-400 p-1 rounded-lg"
+              for="Libro"
+              >Libro
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-400 checked:bg-white checked:before:bg-emerald-400 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="formato"
+                id="Libro"
+                value="Libro"
+              />
+            </label>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-violet-400 p-1 rounded-lg"
+              for="Serie"
+              >Serie
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-violet-400 checked:bg-white checked:before:bg-violet-400 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="formato"
+                id="Serie"
+                value="Serie"
+              />
+            </label>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-rose-400 p-1 rounded-lg"
+              for="Película"
+              >Película
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rose-400 checked:bg-white checked:before:bg-rose-400 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="formato"
+                id="Película"
+                value="Película"
+              />
+            </label>
+          </section>
+          <section>
+            <h6>Géneros:</h6>
+            <label
+              class="inline-flex items-center mt-3 bg-orange-300 p-1 rounded-lg"
+              for="Accion"
+              >Acción
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-300 checked:bg-white checked:before:bg-orange-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Accion"
+                value="Accion"
+            /></label>
 
+            <label
+              class="inline-flex items-center mt-3 bg-lime-300 p-1 rounded-lg"
+              for="Comedia"
+              >Comedia
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Comedia"
+                value="Comedia"
+            /></label>
+            <label
+              class="inline-flex items-center mt-3 bg-red-300 p-1 rounded-lg"
+              for="Drama"
+              >Drama
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Drama"
+                value="Drama"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-purple-300 p-1 rounded-lg"
+              for="Terror"
+              >Terror
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple-300 checked:bg-white checked:before:bg-purple-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Terror"
+                value="Terror"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-green-300 p-1 rounded-lg"
+              for="CienciaFiccion"
+              >Ciencia Ficción
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-300 checked:bg-white checked:before:bg-green-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="CienciaFiccion"
+                value="CienciaFiccion"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-sky-300 p-1 rounded-lg"
+              for="Aventura"
+              >Aventura
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-300 checked:bg-white checked:before:bg-sky-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Aventura"
+                value="Aventura"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-indigo-300 p-1 rounded-lg"
+              for="Fantasia"
+              >Fantasía
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-indigo-300 checked:bg-white checked:before:bg-indigo-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Fantasia"
+                value="Fantasia"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-pink-300 p-1 rounded-lg"
+              for="Romance"
+              >Romance
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-300 checked:bg-white checked:before:bg-pink-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Romance"
+                value="Romance"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-emerald-400 p-1 rounded-lg"
+              for="Thriller"
+              >Thriller
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-300 checked:bg-white checked:before:bg-emerald-500 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Thriller"
+                value="Thriller"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-slate-300 p-1 rounded-lg"
+              for="Suspense"
+              >Suspense
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Suspense"
+                value="Suspense"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-zinc-300 p-1 rounded-lg"
+              for="Western"
+              >Western
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-zinc-300 checked:bg-white checked:before:bg-zinc-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos"
+                id="Western"
+                value="Western"
+            /></label>
+          </section>
+          <section>
+            <h6>Plataformas:</h6>
+            <!-- Netflix -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-red-500 p-1 rounded-lg"
+              for="Netflix"
+              >Netflix
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-500 checked:bg-white checked:before:bg-red-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie"
+                id="Netflix"
+                value="Netflix"
+              />
+            </label>
+
+            <!-- Amazon Prime Video -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-yellow-400 p-1 rounded-lg"
+              for="AmazonPrime"
+              >Amazon Prime Video
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-yellow-500 checked:bg-white checked:before:bg-yellow-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie"
+                id="AmazonPrime"
+                value="AmazonPrime"
+              />
+            </label>
+
+            <!-- Disney+ -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-blue-500 p-1 rounded-lg"
+              for="DisneyPlus"
+              >Disney+
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-white checked:before:bg-blue-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie"
+                id="DisneyPlus"
+                value="DisneyPlus"
+              />
+            </label>
+
+            <!-- HBO Max -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-purple-500 p-1 rounded-lg"
+              for="HBOMax"
+              >HBO Max
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple-500 checked:bg-white checked:before:bg-purple-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie"
+                id="Max"
+                value="HBOMax"
+              />
+            </label>
+
+            <!-- Apple TV+ -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-pink-500 p-1 rounded-lg"
+              for="AppleTVPlus"
+              >Apple TV+
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-white checked:before:bg-pink-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie"
+                id="AppleTVPlus"
+                value="AppleTVPlus"
+              />
+            </label>
+
+            <!-- Hulu -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-green-500 p-1 rounded-lg"
+              for="Hulu"
+              >Hulu
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-500 checked:bg-white checked:before:bg-green-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                value="Hulu"
+                name="Plataforma_Peli_Serie"
+                id="Hulu"
+              />
+            </label>
+
+            <!-- Paramount+ -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-sky-500 p-1 rounded-lg"
+              for="ParamountPlus"
+              >Paramount+
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-500 checked:bg-white checked:before:bg-sky-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie"
+                value="ParamountPlus"
+                id="ParamountPlus"
+              />
+            </label>
+          </section>
+          <section>
+            <h6>Plataformas Libros:</h6>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-amber-400 p-1 rounded-lg"
+              for="Kindle"
+              >Kindle
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-amber-400 checked:bg-white checked:before:bg-amber-400 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie"
+                id="Kindle"
+                value="Kindle"
+              />
+            </label>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-pink-500 p-1 rounded-lg"
+              for="AppleBooks"
+              >Apple Books
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-white checked:before:bg-pink-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie"
+                id="AppleBooks"
+                value="AppleBooks"
+              />
+            </label>
+          </section>
+          <section>
+            <h6>Estado:</h6>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-lime-300 p-1 rounded-lg"
+              for="En_progreso"
+              >En progreso
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-lime-300 checked:bg-white checked:before:bg-lime-300 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="Estado"
+                id="En_progreso"
+                value="En_progreso"
+              />
+            </label>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-yellow-300 p-1 rounded-lg"
+              for="Pendiente"
+              >Pendiente
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="Estado"
+                id="Pendiente"
+                value="Pendiente"
+              />
+            </label>
+          </section>
+          <button
+            type="submit"
+            class="bg-yellow-200 h-full rounded-lg py-2"
+            id="botonCrearManadarForm"
+          >
+            Agregar
+          </button>
+        </form>
+      </div>
+      <div
+        role="dialog"
+        class="z-50 fixed top-0 w-full h-screen w-screen bg-slate-500/50 grid justify-center items-center invisible"
+        id="dialog_editar_recurso"
+      >
+        <form
+          action=""
+          class="poppins-medium flex flex-col bg-white w-9/12 h-5/6 p-8 rounded-lg gap-y-2 overflow-auto xl:m-0 mx-auto"
+          id="formEditarRecurso"
+        >
+          <input
+            required
+            type="text"
+            placeholder="Nombre del Recurso"
+            id="form_nombre_recurso_editar"
+          />
+          <input
+            required
+            type="url"
+            placeholder="Url Portada"
+            id="url_recurso_editar"
+          />
+          <section>
+            <h6>Formato:</h6>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-emerald-400 p-1 rounded-lg"
+              for="Libro"
+              >Libro
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-400 checked:bg-white checked:before:bg-emerald-400 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="formato_editar"
+                id="Libro"
+                value="Libro"
+              />
+            </label>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-violet-400 p-1 rounded-lg"
+              for="Serie"
+              >Serie
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-violet-400 checked:bg-white checked:before:bg-violet-400 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="formato_editar"
+                id="Serie"
+                value="Serie"
+              />
+            </label>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-rose-400 p-1 rounded-lg"
+              for="Película"
+              >Película
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rose-400 checked:bg-white checked:before:bg-rose-400 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="formato_editar"
+                id="Película"
+                value="Película"
+              />
+            </label>
+          </section>
+          <section>
+            <h6>Géneros:</h6>
+            <label
+              class="inline-flex items-center mt-3 bg-orange-300 p-1 rounded-lg"
+              for="Accion"
+              >Acción
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-orange-300 checked:bg-white checked:before:bg-orange-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Accion"
+                value="Accion"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-lime-300 p-1 rounded-lg"
+              for="Comedia"
+              >Comedia
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Comedia"
+                value="Comedia"
+            /></label>
+            <label
+              class="inline-flex items-center mt-3 bg-red-300 p-1 rounded-lg"
+              for="Drama"
+              >Drama
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Drama"
+                value="Drama"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-purple-300 p-1 rounded-lg"
+              for="Terror"
+              >Terror
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple-300 checked:bg-white checked:before:bg-purple-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Terror"
+                value="Terror"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-green-300 p-1 rounded-lg"
+              for="CienciaFiccion"
+              >Ciencia Ficción
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-300 checked:bg-white checked:before:bg-green-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="CienciaFiccion"
+                value="CienciaFiccion"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-sky-300 p-1 rounded-lg"
+              for="Aventura"
+              >Aventura
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-300 checked:bg-white checked:before:bg-sky-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Aventura"
+                value="Aventura"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-indigo-300 p-1 rounded-lg"
+              for="Fantasia"
+              >Fantasía
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-indigo-300 checked:bg-white checked:before:bg-indigo-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Fantasia"
+                value="Fantasia"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-pink-300 p-1 rounded-lg"
+              for="Romance"
+              >Romance
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-300 checked:bg-white checked:before:bg-pink-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Romance"
+                value="Romance"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-emerald-400 p-1 rounded-lg"
+              for="Thriller"
+              >Thriller
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-emerald-300 checked:bg-white checked:before:bg-emerald-500 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Thriller"
+                value="Thriller"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-slate-300 p-1 rounded-lg"
+              for="Suspense"
+              >Suspense
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-slate-300 checked:bg-white checked:before:bg-slate-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Suspense"
+                value="Suspense"
+            /></label>
+
+            <label
+              class="inline-flex items-center mt-3 bg-zinc-300 p-1 rounded-lg"
+              for="Western"
+              >Western
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-zinc-300 checked:bg-white checked:before:bg-zinc-300 hover:before:opacity-20 ml-1"
+                type="checkbox"
+                name="generos_editar"
+                id="Western"
+                value="Western"
+            /></label>
+          </section>
+          <section>
+            <h6>Plataformas:</h6>
+            <!-- Netflix -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-red-500 p-1 rounded-lg"
+              for="Netflix"
+              >Netflix
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-500 checked:bg-white checked:before:bg-red-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie"
+                id="Netflix"
+                value="Netflix"
+              />
+            </label>
+
+            <!-- Amazon Prime Video -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-yellow-400 p-1 rounded-lg"
+              for="AmazonPrime"
+              >Amazon Prime Video
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-yellow-500 checked:bg-white checked:before:bg-yellow-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie_editar"
+                id="AmazonPrime"
+                value="AmazonPrime"
+              />
+            </label>
+
+            <!-- Disney+ -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-blue-500 p-1 rounded-lg"
+              for="DisneyPlus"
+              >Disney+
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-white checked:before:bg-blue-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie_editar"
+                id="DisneyPlus"
+                value="DisneyPlus"
+              />
+            </label>
+
+            <!-- HBO Max -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-purple-500 p-1 rounded-lg"
+              for="HBOMax"
+              >HBO Max
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-purple-500 checked:bg-white checked:before:bg-purple-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie_editar"
+                id="Max"
+                value="HBOMax"
+              />
+            </label>
+
+            <!-- Apple TV+ -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-pink-500 p-1 rounded-lg"
+              for="AppleTVPlus"
+              >Apple TV+
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-white checked:before:bg-pink-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie_editar"
+                id="AppleTVPlus"
+                value="AppleTVPlus"
+              />
+            </label>
+
+            <!-- Hulu -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-green-500 p-1 rounded-lg"
+              for="Hulu"
+              >Hulu
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-500 checked:bg-white checked:before:bg-green-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                value="Hulu"
+                name="Plataforma_Peli_Serie_editar"
+                id="Hulu"
+              />
+            </label>
+
+            <!-- Paramount+ -->
+            <label
+              class="inline-flex items-center mt-3 items-center bg-sky-500 p-1 rounded-lg"
+              for="ParamountPlus"
+              >Paramount+
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-sky-500 checked:bg-white checked:before:bg-sky-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie_editar"
+                value="ParamountPlus"
+                id="ParamountPlus"
+              />
+            </label>
+          </section>
+          <section>
+            <h6>Plataformas Libros:</h6>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-amber-400 p-1 rounded-lg"
+              for="Kindle"
+              >Kindle
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-amber-400 checked:bg-white checked:before:bg-amber-400 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie_editar"
+                id="Kindle"
+                value="Kindle"
+              />
+            </label>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-pink-500 p-1 rounded-lg"
+              for="AppleBooks"
+              >Apple Books
+              <input
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:bg-white checked:before:bg-pink-500 hover:before:opacity-10 ml-1"
+                type="checkbox"
+                name="Plataforma_Peli_Serie_editar"
+                id="AppleBooks"
+                value="AppleBooks"
+              />
+            </label>
+          </section>
+          <section>
+            <h6>Estado:</h6>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-lime-300 p-1 rounded-lg"
+              for="En_progreso"
+              >En progreso
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-lime-300 checked:bg-white checked:before:bg-lime-300 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="Estado_editar"
+                id="En_progreso"
+                value="En_progreso"
+              />
+            </label>
+            <label
+              class="inline-flex items-center mt-3 items-center bg-yellow-300 p-1 rounded-lg"
+              for="Pendiente"
+              >Pendiente
+              <input
+                required
+                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-red-300 checked:bg-white checked:before:bg-red-300 hover:before:opacity-10 ml-1"
+                type="radio"
+                name="Estado_editar"
+                id="Pendiente"
+                value="Pendiente"
+              />
+            </label>
+          </section>
+          <button
+            type="submit"
+            class="bg-yellow-200 h-full rounded-lg py-2"
+            id="botonEditarManadarForm"
+          >
+            Editar
+          </button>
+        </form>
+      </div>
+      <div
+        role="dialog"
+        class="z-50 fixed top-0 w-full h-screen w-screen bg-slate-500/50 grid justify-center items-center invisible"
+        id="dialog_terminar_recurso"
+      >
+        <form
+          action=""
+          class="poppins-medium flex flex-col bg-white w-96 h-3/6 p-8 rounded-lg gap-y-2 overflow-auto xl:m-0 mx-auto"
+          id="formTerminarRecurso"
+        >
+          <section>
+            <label for="fecha-terminación">
+              Fecha de Terminación:
+              <input
+                required
+                type="date"
+                name="fecha-terminación"
+                id="fecha-terminación"
+                max="2024-08-27"
+                class="bg-pink-300 p-1 rounded-lg"
+              />
+            </label>
+          </section>
+          <section>
+            <label for="valoracion-final">
+              Valoración Final:
+              <input
+                required
+                type="range"
+                name="valoracion-final"
+                id="valoracion-final"
+                max="5"
+                min="1"
+              />
+            </label>
+          </section>
+          <section>
+            <label for="valoracion-final">
+              Reseña:
+              <textarea
+                required
+                name="Resenia"
+                id="Resenia"
+                class="w-full h-16 resize-none border-2 rounded-lg border-gray-300"
+              ></textarea>
+            </label>
+          </section>
+          <button
+            type="submit"
+            class="bg-rose-200 h-full rounded-lg py-2"
+            id="botonTerminarRecurso"
+          >
+            Recurso Terminado
+          </button>
+        </form>
+      </div>
+    </main>
+  </body>
 </html>
