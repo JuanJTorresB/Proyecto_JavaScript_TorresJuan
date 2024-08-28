@@ -1,5 +1,7 @@
 const filtros_secciones = document.getElementById("filtros-secciones");
 
+const Todo_Y_Fitros = document.getElementById("Todo_Y_Fitros");
+
 const creadorDeTags = (arr) => {
   let tagsEstilizados = [];
   for (let tag of arr) {
@@ -397,6 +399,64 @@ const dibujarTerminado = async () => {
 };
 
 const dibujarSeccionesPorEstado = () => {
+  Todo_Y_Fitros.innerHTML = `
+  <section class="p-4 flex">
+        <input
+          class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+          placeholder="  🔍︎  Búsqueda Por Nombre..."
+          type="text"
+          name="search_bar"
+          id="search_bar"
+        />
+        <button
+          class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+        >
+          <svg
+            class="w-8 h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </button>
+      </section>
+    <form
+      action=""
+      class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
+    >
+      <button
+        class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+      >
+        Estado
+      </button>
+      <button
+        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+      >
+        Genero
+      </button>
+      <button
+        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+      >
+        Plataforma
+      </button>
+    </form>
+    <form
+      action=""
+      class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2"
+    >
+      <button
+        class="bg-yellow-200 w-64 h-16 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+        id="boton_crear_recuros"
+      >
+        Crear
+      </button>
+    </form>
+    <section id="filtros-secciones"></section>`;
+  const filtros_secciones = document.getElementById("filtros-secciones");
+
   filtros_secciones.innerHTML = `<section
     class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"
     id="en-progreso"
@@ -551,57 +611,125 @@ const AgregarGeneral = (arr, section) => {
   }
 };
 
-
 const dibujarNetflix = async () => {
-    const section_Netflix = document.getElementById("netflix");
-    AgregarGeneral(await traerPlataformaRecurso("Netflix"), section_Netflix);
+  const section_Netflix = document.getElementById("netflix");
+  AgregarGeneral(await traerPlataformaRecurso("Netflix"), section_Netflix);
 };
 
 const dibujarAmazonPrime = async () => {
-    const section_AmazonPrime = document.getElementById("amazonprime");
-    AgregarGeneral(await traerPlataformaRecurso("AmazonPrime"), section_AmazonPrime);
+  const section_AmazonPrime = document.getElementById("amazonprime");
+  AgregarGeneral(
+    await traerPlataformaRecurso("AmazonPrime"),
+    section_AmazonPrime
+  );
 };
 
 const dibujarDisneyPlus = async () => {
-    const section_DisneyPlus = document.getElementById("disneyplus");
-    AgregarGeneral(await traerPlataformaRecurso("DisneyPlus"), section_DisneyPlus);
+  const section_DisneyPlus = document.getElementById("disneyplus");
+  AgregarGeneral(
+    await traerPlataformaRecurso("DisneyPlus"),
+    section_DisneyPlus
+  );
 };
 
 const dibujarHBOMax = async () => {
-    const section_HBOMax = document.getElementById("hbomax");
-    AgregarGeneral(await traerPlataformaRecurso("HBOMax"), section_HBOMax);
+  const section_HBOMax = document.getElementById("hbomax");
+  AgregarGeneral(await traerPlataformaRecurso("HBOMax"), section_HBOMax);
 };
 
 const dibujarAppleTVPlus = async () => {
-    const section_AppleTVPlus = document.getElementById("appletvplus");
-    AgregarGeneral(await traerPlataformaRecurso("AppleTVPlus"), section_AppleTVPlus);
+  const section_AppleTVPlus = document.getElementById("appletvplus");
+  AgregarGeneral(
+    await traerPlataformaRecurso("AppleTVPlus"),
+    section_AppleTVPlus
+  );
 };
 
 const dibujarHulu = async () => {
-    const section_Hulu = document.getElementById("hulu");
-    AgregarGeneral(await traerPlataformaRecurso("Hulu"), section_Hulu);
+  const section_Hulu = document.getElementById("hulu");
+  AgregarGeneral(await traerPlataformaRecurso("Hulu"), section_Hulu);
 };
 
 const dibujarParamountPlus = async () => {
-    const section_ParamountPlus = document.getElementById("paramountplus");
-    AgregarGeneral(
-        await traerPlataformaRecurso("ParamountPlus"),
-        section_ParamountPlus
-        );
-    };
-    
-    const dibujarKindle = async () => {
-        const section_Kindle = document.getElementById("kindle");
-        AgregarGeneral(await traerPlataformaRecurso("Kindle"), section_Kindle);
-    };
-    
-    const dibujarAppleBooks = async () => {
-        const section_AppleBooks = document.getElementById("applebooks");
-        AgregarGeneral(await traerPlataformaRecurso("AppleBooks"), section_AppleBooks);
+  const section_ParamountPlus = document.getElementById("paramountplus");
+  AgregarGeneral(
+    await traerPlataformaRecurso("ParamountPlus"),
+    section_ParamountPlus
+  );
 };
 
-const dibujarSeccionesPorPlataforma = ()=>{
-    filtros_secciones.innerHTML = `        <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="netflix">
+const dibujarKindle = async () => {
+  const section_Kindle = document.getElementById("kindle");
+  AgregarGeneral(await traerPlataformaRecurso("Kindle"), section_Kindle);
+};
+
+const dibujarAppleBooks = async () => {
+  const section_AppleBooks = document.getElementById("applebooks");
+  AgregarGeneral(
+    await traerPlataformaRecurso("AppleBooks"),
+    section_AppleBooks
+  );
+};
+
+const dibujarSeccionesPorPlataforma = () => {
+  Todo_Y_Fitros.innerHTML = `
+  <section class="p-4 flex">
+        <input
+          class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+          placeholder="  🔍︎  Búsqueda Por Nombre..."
+          type="text"
+          name="search_bar"
+          id="search_bar"
+        />
+        <button
+          class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+        >
+          <svg
+            class="w-8 h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </button>
+      </section>
+    <form
+    action=""
+    class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
+    >
+    <button
+    class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    >
+    Estado
+    </button>
+    <button
+    class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    >
+    Genero
+    </button>
+    <button
+    class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    >
+    Plataforma
+    </button>
+    </form>
+    <form
+    action=""
+      class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2"
+    >
+    <button
+    class="bg-yellow-200 w-64 h-16 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    id="boton_crear_recuros"
+    >
+    Crear
+    </button>
+    </form>
+    <section id="filtros-secciones"></section>`;
+  const filtros_secciones = document.getElementById("filtros-secciones");
+  filtros_secciones.innerHTML = `        <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="netflix">
     <h5 class="poppins-medium text-medium flex w-full mb-8">
       <svg
         class="w-6 h-6 mr-4 fill-red-500"
@@ -717,8 +845,304 @@ const dibujarSeccionesPorPlataforma = ()=>{
   dibujarParamountPlus();
   dibujarKindle();
   dibujarAppleBooks();
-}
+};
 
-dibujarSeccionesPorPlataforma()
+const dibujarAccion = async () => {
+  const section_Accion = document.getElementById("accion");
+  AgregarGeneral(await traerFormatoGeneros("Accion"), section_Accion);
+};
+
+const dibujarComedia = async () => {
+  const section_Comedia = document.getElementById("comedia");
+  AgregarGeneral(await traerFormatoGeneros("Comedia"), section_Comedia);
+};
+
+const dibujarDrama = async () => {
+  const section_Drama = document.getElementById("drama");
+  AgregarGeneral(await traerFormatoGeneros("Drama"), section_Drama);
+};
+
+const dibujarTerror = async () => {
+  const section_Terror = document.getElementById("terror");
+  AgregarGeneral(await traerFormatoGeneros("Terror"), section_Terror);
+};
+
+const dibujarCienciaFiccion = async () => {
+  const section_CienciaFiccion = document.getElementById("cienciaficcion");
+  AgregarGeneral(
+    await traerFormatoGeneros("CienciaFiccion"),
+    section_CienciaFiccion
+  );
+};
+
+const dibujarAventura = async () => {
+  const section_Aventura = document.getElementById("aventura");
+  AgregarGeneral(await traerFormatoGeneros("Aventura"), section_Aventura);
+};
+
+const dibujarFantasia = async () => {
+  const section_Fantasia = document.getElementById("fantasia");
+  AgregarGeneral(await traerFormatoGeneros("Fantasia"), section_Fantasia);
+};
+
+const dibujarRomance = async () => {
+  const section_Romance = document.getElementById("romance");
+  AgregarGeneral(await traerFormatoGeneros("Romance"), section_Romance);
+};
+
+const dibujarThriller = async () => {
+  const section_Thriller = document.getElementById("thriller");
+  AgregarGeneral(await traerFormatoGeneros("Thriller"), section_Thriller);
+};
+
+const dibujarSuspense = async () => {
+  const section_Suspense = document.getElementById("suspense");
+  AgregarGeneral(await traerFormatoGeneros("Suspense"), section_Suspense);
+};
+
+const dibujarWestern = async () => {
+  const section_Western = document.getElementById("western");
+  AgregarGeneral(await traerFormatoGeneros("Western"), section_Western);
+};
+
+const dibujarSeccionesPorGeneros = async () => {
+  Todo_Y_Fitros.innerHTML = `
+  <section class="p-4 flex">
+        <input
+          class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+          placeholder="  🔍︎  Búsqueda Por Nombre..."
+          type="text"
+          name="search_bar"
+          id="search_bar"
+        />
+        <button
+          class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+        >
+          <svg
+            class="w-8 h-8"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+          >
+            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </button>
+      </section>
+    <form
+      action=""
+      class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
+    >
+      <button
+        class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+      >
+        Estado
+      </button>
+      <button
+        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+      >
+        Genero
+      </button>
+      <button
+        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+      >
+        Plataforma
+      </button>
+    </form>
+    <form
+      action=""
+      class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2"
+    >
+      <button
+        class="bg-yellow-200 w-64 h-16 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+        id="boton_crear_recuros"
+      >
+        Crear
+      </button>
+    </form>
+    <section id="filtros-secciones"></section>`;
+  const filtros_secciones = document.getElementById("filtros-secciones");
+
+  filtros_secciones.innerHTML = `<section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="accion">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-orange-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Acción
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="comedia">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-lime-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Comedia
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="drama">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-red-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Drama
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="terror">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-purple-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Terror
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="cienciaficcion">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-green-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      CienciaFiccion
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="aventura">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-sky-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Aventura
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="fantasia">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-indigo-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Fantasia
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="romance">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-pink-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Romance
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="thriller">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-emerald-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Thriller
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="suspense">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-slate-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Suspense
+    </h5>
+  </section>
+  
+  <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="western">
+    <h5 class="poppins-medium text-medium flex w-full mb-8">
+      <svg
+        class="w-6 h-6 mr-4 fill-zinc-500"
+        viewBox="0 0 23 22"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="11.6428" cy="11" r="11" />
+      </svg>
+      Western
+    </h5>
+  </section>
+  `;
+  dibujarAccion();
+  dibujarComedia();
+  dibujarDrama();
+  dibujarTerror();
+  dibujarCienciaFiccion();
+  dibujarAventura();
+  dibujarFantasia();
+  dibujarRomance();
+  dibujarThriller();
+  dibujarSuspense();
+  dibujarWestern();
+};
+
+const dibujarMovies = async () => {
+    
+    Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
+  const filtros_secciones = document.getElementById("filtros-secciones");
+  AgregarGeneral(await traerFormatoRecurso("Película"), filtros_secciones);
+};
+const dibujarSeries = async () => {
+    Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones"></section>`;
+  const filtros_secciones = document.getElementById("filtros-secciones");
+  AgregarGeneral(await traerFormatoRecurso("Serie"), filtros_secciones);
+};
+const dibujarLibros = async () => {
+    Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones"></section>`;
+  const filtros_secciones = document.getElementById("filtros-secciones");
+  AgregarGeneral(await traerFormatoRecurso("Libro"), filtros_secciones);
+};
+
+//dibujarMovies()
+//dibujarSeries()
+//dibujarLibros()
+
+//dibujarSeccionesPorGeneros()
+
+//dibujarSeccionesPorPlataforma();
 
 //dibujarSeccionesPorEstado();

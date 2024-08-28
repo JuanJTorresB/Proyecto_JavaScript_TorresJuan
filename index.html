@@ -266,99 +266,62 @@
       </div>
     </aside>
     <main class="xl:ml-72 mb-4 mr-4 hidden" id="main">
-      <section class="p-4 flex">
-        <input
-          class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
-          placeholder="  🔍︎  Búsqueda Por Nombre..."
-          type="text"
-          name="search_bar"
-          id="search_bar"
-        />
-        <button
-          class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
-        >
-          <svg
-            class="w-8 h-8"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
+      <section id="Todo_Y_Fitros">
+        <section class="p-4 flex">
+          <input
+            class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+            placeholder="  🔍︎  Búsqueda Por Nombre..."
+            type="text"
+            name="search_bar"
+            id="search_bar"
+          />
+          <button
+            class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
           >
-            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
-            />
-          </svg>
-        </button>
-      </section>
-      <form
-        action=""
-        class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
-      >
-        <button
-          class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-        >
-          Estado
-        </button>
-        <button
-          class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-        >
-          Genero
-        </button>
-        <button
-          class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-        >
-          Plataforma
-        </button>
-      </form>
-      <form
-        action=""
-        class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2"
-      >
-        <button
-          class="bg-yellow-200 w-64 h-16 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-          id="boton_crear_recuros"
-        >
-          Crear
-        </button>
-      </form>
-      <section id="filtros-secciones">
-        <!-- <section
-          class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"
-          id="en-progreso"
-        >
-          <h5 class="poppins-medium text-medium flex w-full mb-8">
             <svg
-              class="w-6 h-6 mr-4 fill-lime-300"
-              viewBox="0 0 23 22"
+              class="w-8 h-8"
               xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
             >
-              <circle cx="11.6428" cy="11" r="11" /></svg
-            >En Progreso
-          </h5>
+              <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+              />
+            </svg>
+          </button>
         </section>
-        <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4" id="pendiente">
-          <h5 class="poppins-medium text-medium flex w-full mb-8">
-            <svg
-              class="w-6 h-6 mr-4 fill-yellow-300"
-              viewBox="0 0 23 22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="11.6428" cy="11" r="11" /></svg
-            >Pendiente
-          </h5>
-        </section>
-        <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4" id="terminado">
-          <h5 class="poppins-medium text-medium flex w-full mb-8">
-            <svg
-              class="w-6 h-6 mr-4 fill-red-300"
-              viewBox="0 0 23 22"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="11.6428" cy="11" r="11" /></svg
-            >Terminado
-          </h5>
-        </section> -->
-
-        
+        <form
+          action=""
+          class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
+        >
+          <button
+            class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+          >
+            Estado
+          </button>
+          <button
+            class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+          >
+            Genero
+          </button>
+          <button
+            class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+          >
+            Plataforma
+          </button>
+        </form>
+        <form
+          action=""
+          class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2"
+        >
+          <button
+            class="bg-yellow-200 w-64 h-16 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+            id="boton_crear_recuros"
+          >
+            Crear
+          </button>
+        </form>
+        <section id="filtros-secciones"></section>
       </section>
       <div
         role="dialog"
