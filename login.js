@@ -347,12 +347,22 @@ sessionStorage.setItem(
   sessionStorage.getItem("credentials") ?? ""
 );
 
+const Bot_logout = document.getElementById("Bot_logout")
+
+Bot_logout.addEventListener("click", ()=>{
+  localStorage.setItem("credentials", "" );
+  sessionStorage.setItem("credentials", "" );
+  location.reload();
+})
+
 if (sessionStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Session ID
+  IdUserActual = sessionStorage.getItem("credentials")
   main.classList.toggle("hidden", false);
   dashboard.classList.toggle("hidden", false);
 } else if (localStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Local ID
+  IdUserActual = localStorage.getItem("credentials")
   main.classList.toggle("hidden", false);
   dashboard.classList.toggle("hidden", false);
 } else {

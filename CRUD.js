@@ -1,6 +1,6 @@
 //Traer Id de el User
 
-var IdUserActual = "-1";
+var IdUserActual;
 
 if (sessionStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Session ID
