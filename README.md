@@ -1,6 +1,6 @@
 <div align="center">
   <a href="">
-    <img src="/img/Logo.png">
+    <img src="/img/Logo-removebg-preview.png">
   </a>
 <h1 text-align="center">StoryStack</h1>
 </div>
