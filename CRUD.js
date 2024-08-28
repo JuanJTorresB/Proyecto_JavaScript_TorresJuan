@@ -72,7 +72,7 @@ boton_crear_recuros.addEventListener("click", (event) => {
   dialog_crear_recurso.classList.toggle("invisible", false);
 });
 
-formCrearRecurso.addEventListener("submit", (event) => {
+formCrearRecurso.addEventListener("submit", async(event) => {
   event.preventDefault();
   const form_nombre_recurso = document.getElementById(
     "form_nombre_recurso"
@@ -84,7 +84,7 @@ formCrearRecurso.addEventListener("submit", (event) => {
     'input[name="Plataforma_Peli_Serie"]'
   );
   const estado_recurso = checkbox_seleccionados('input[name="Estado"]');
-  crearRecurso(
+  await crearRecurso(
     form_nombre_recurso,
     url_recurso,
     formato_recurso,
@@ -94,6 +94,7 @@ formCrearRecurso.addEventListener("submit", (event) => {
   );
   formCrearRecurso.reset();
   dialog_crear_recurso.classList.toggle("invisible", true);
+  location.reload()
 });
 
 const traerRecursosEstadoEnProgreso = () => {
