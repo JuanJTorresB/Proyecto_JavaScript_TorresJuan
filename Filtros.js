@@ -400,29 +400,29 @@ const dibujarTerminado = async () => {
 
 const dibujarSeccionesPorEstado = () => {
   Todo_Y_Fitros.innerHTML = `
-  <section class="p-4 flex">
-        <input
-          class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
-          placeholder="  🔍︎  Búsqueda Por Nombre..."
-          type="text"
-          name="search_bar"
-          id="search_bar"
+  <form id="search_bar_form" class="p-4 flex">
+    <input
+      class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+      placeholder="  🔍︎  Búsqueda Por Nombre..."
+      type="text"
+      name="search_bar"
+      id="search_bar"
+    />
+    <button
+      class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+    >
+      <svg
+        class="w-8 h-8"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+      >
+        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <path
+          d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
         />
-        <button
-          class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
-        >
-          <svg
-            class="w-8 h-8"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-          >
-            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
-            />
-          </svg>
-        </button>
-      </section>
+      </svg>
+    </button>
+  </form>
     <form
       action=""
       class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
@@ -673,29 +673,29 @@ const dibujarAppleBooks = async () => {
 
 const dibujarSeccionesPorPlataforma = () => {
   Todo_Y_Fitros.innerHTML = `
-  <section class="p-4 flex">
-        <input
-          class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
-          placeholder="  🔍︎  Búsqueda Por Nombre..."
-          type="text"
-          name="search_bar"
-          id="search_bar"
+  <form id="search_bar_form" class="p-4 flex">
+    <input
+      class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+      placeholder="  🔍︎  Búsqueda Por Nombre..."
+      type="text"
+      name="search_bar"
+      id="search_bar"
+    />
+    <button
+      class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+    >
+      <svg
+        class="w-8 h-8"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+      >
+        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <path
+          d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
         />
-        <button
-          class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
-        >
-          <svg
-            class="w-8 h-8"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-          >
-            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
-            />
-          </svg>
-        </button>
-      </section>
+      </svg>
+    </button>
+  </form>
     <form
     action=""
     class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
@@ -907,29 +907,29 @@ const dibujarWestern = async () => {
 
 const dibujarSeccionesPorGeneros = async () => {
   Todo_Y_Fitros.innerHTML = `
-  <section class="p-4 flex">
-        <input
-          class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
-          placeholder="  🔍︎  Búsqueda Por Nombre..."
-          type="text"
-          name="search_bar"
-          id="search_bar"
+  <form id="search_bar_form" class="p-4 flex">
+    <input
+      class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+      placeholder="  🔍︎  Búsqueda Por Nombre..."
+      type="text"
+      name="search_bar"
+      id="search_bar"
+    />
+    <button
+      class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+    >
+      <svg
+        class="w-8 h-8"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+      >
+        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <path
+          d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
         />
-        <button
-          class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
-        >
-          <svg
-            class="w-8 h-8"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-          >
-            <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-            <path
-              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
-            />
-          </svg>
-        </button>
-      </section>
+      </svg>
+    </button>
+  </form>
     <form
       action=""
       class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
@@ -1121,21 +1121,58 @@ const dibujarSeccionesPorGeneros = async () => {
 };
 
 const dibujarMovies = async () => {
-    
-    Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
+  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
   AgregarGeneral(await traerFormatoRecurso("Película"), filtros_secciones);
 };
 const dibujarSeries = async () => {
-    Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones"></section>`;
+  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
   AgregarGeneral(await traerFormatoRecurso("Serie"), filtros_secciones);
 };
 const dibujarLibros = async () => {
-    Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones"></section>`;
+  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
   AgregarGeneral(await traerFormatoRecurso("Libro"), filtros_secciones);
 };
+
+const dibujarBusquedaPorNombre = async () => {
+    Todo_Y_Fitros.innerHTML = `<form id="search_bar_form" class="p-4 flex">
+    <input
+      class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+      placeholder="  🔍︎  Búsqueda Por Nombre..."
+      type="text"
+      name="search_bar"
+      id="search_bar"
+    />
+    <button
+      class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+    >
+      <svg
+        class="w-8 h-8"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+      >
+        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <path
+          d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+        />
+      </svg>
+    </button>
+  </form><section id="filtros-secciones"></section>`;
+  const filtros_secciones = document.getElementById("filtros-secciones");
+  const search_bar = document.getElementById("search_bar");
+  const search_bar_form = document.getElementById("search_bar_form");
+  search_bar.addEventListener("change", async()=>{
+    filtros_secciones.innerHTML = ``
+      AgregarGeneral(await traerNombreRecurso(search_bar.value), filtros_secciones);
+  })
+  search_bar_form.addEventListener("submit", (event)=>{
+    event.preventDefault()
+})
+};
+
+//dibujarBusquedaPorNombre()
 
 //dibujarMovies()
 //dibujarSeries()

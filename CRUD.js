@@ -228,7 +228,31 @@ const traerFormatoRecurso = async(buscar) => {
   }
 };
 
+const traerNombreRecurso = async(buscar) => {
+  try {
+    let urlRecursos = new URL(
+      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
+    );
+    urlRecursos.searchParams.append("nombre_recurso", buscar);
 
+    const res = await fetch(urlRecursos, {
+      method: "GET",
+      headers: { "content-type": "application/json" }
+    });
+
+    if (res.ok) {
+      const tasks = await res.json();
+      console.log(tasks);
+      return tasks;
+    } else {
+      console.error("Recurso No Encontrado");
+      return [];
+    }
+  } catch (error) {
+    console.error("Error al Traer Formato de Recurso:", error);
+    return [];
+  }
+};
 
 //Elinimar Racurso
 
