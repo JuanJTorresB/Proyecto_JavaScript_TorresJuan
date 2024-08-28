@@ -423,26 +423,29 @@ const dibujarSeccionesPorEstado = () => {
       </svg>
     </button>
   </form>
-    <form
-      action=""
-      class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
-    >
-      <button
-        class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-      >
-        Estado
-      </button>
-      <button
-        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-      >
-        Genero
-      </button>
-      <button
-        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-      >
-        Plataforma
-      </button>
-    </form>
+  <form
+  action=""
+  class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
+>
+  <button
+    class="bg-purple-300 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    id="Estado_Filtro_Boton"
+  >
+    Estado
+  </button>
+  <button
+    class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    id="Estado_Genero_Boton"
+  >
+    Genero
+  </button>
+  <button
+    class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    id="Estado_Plataforma_Boton"
+  >
+    Plataforma
+  </button>
+</form>
     <form
       action=""
       class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2"
@@ -456,7 +459,26 @@ const dibujarSeccionesPorEstado = () => {
     </form>
     <section id="filtros-secciones"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
+  const Estado_Filtro_Boton = document.getElementById("Estado_Filtro_Boton");
+  Estado_Filtro_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorEstado();
+  });
+  const Estado_Genero_Boton = document.getElementById("Estado_Genero_Boton");
+  Estado_Genero_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorGeneros();
+  });
+  const Estado_Plataforma_Boton = document.getElementById(
+    "Estado_Plataforma_Boton"
+  );
+  Estado_Plataforma_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorPlataforma();
+  });
+  const boton_crear_recuros = document.getElementById("boton_crear_recuros");
 
+  boton_crear_recuros.addEventListener("click", (event) => {
+    event.preventDefault();
+    dialog_crear_recurso.classList.toggle("invisible", false);
+  });
   filtros_secciones.innerHTML = `<section
     class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"
     id="en-progreso"
@@ -496,6 +518,19 @@ const dibujarSeccionesPorEstado = () => {
   dibujarEnProgreso();
   dibujarPendientes();
   dibujarTerminado();
+  const search_bar = document.getElementById("search_bar");
+  const search_bar_form = document.getElementById("search_bar_form");
+  search_bar.addEventListener("change", async () => {
+    filtros_secciones.innerHTML = ``;
+    filtros_secciones.classList = `mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4`;
+    AgregarGeneral(
+      await traerNombreRecurso(search_bar.value),
+      filtros_secciones
+    );
+  });
+  search_bar_form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
 };
 
 const AgregarGeneral = (arr, section) => {
@@ -696,26 +731,29 @@ const dibujarSeccionesPorPlataforma = () => {
       </svg>
     </button>
   </form>
-    <form
-    action=""
-    class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
-    >
-    <button
-    class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-    >
+  <form
+  action=""
+  class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
+>
+  <button
+    class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    id="Estado_Filtro_Boton"
+  >
     Estado
-    </button>
-    <button
+  </button>
+  <button
     class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-    >
+    id="Estado_Genero_Boton"
+  >
     Genero
-    </button>
-    <button
-    class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-    >
+  </button>
+  <button
+    class="bg-purple-300 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    id="Estado_Plataforma_Boton"
+  >
     Plataforma
-    </button>
-    </form>
+  </button>
+</form>
     <form
     action=""
       class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2"
@@ -729,6 +767,39 @@ const dibujarSeccionesPorPlataforma = () => {
     </form>
     <section id="filtros-secciones"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
+  const Estado_Filtro_Boton = document.getElementById("Estado_Filtro_Boton");
+  Estado_Filtro_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorEstado();
+  });
+  const Estado_Genero_Boton = document.getElementById("Estado_Genero_Boton");
+  Estado_Genero_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorGeneros();
+  });
+  const Estado_Plataforma_Boton = document.getElementById(
+    "Estado_Plataforma_Boton"
+  );
+  Estado_Plataforma_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorPlataforma();
+  });
+  const boton_crear_recuros = document.getElementById("boton_crear_recuros");
+
+  boton_crear_recuros.addEventListener("click", (event) => {
+    event.preventDefault();
+    dialog_crear_recurso.classList.toggle("invisible", false);
+  });
+  const search_bar = document.getElementById("search_bar");
+  const search_bar_form = document.getElementById("search_bar_form");
+  search_bar.addEventListener("change", async () => {
+    filtros_secciones.innerHTML = ``;
+    filtros_secciones.classList = `mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4`;
+    AgregarGeneral(
+      await traerNombreRecurso(search_bar.value),
+      filtros_secciones
+    );
+  });
+  search_bar_form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
   filtros_secciones.innerHTML = `        <section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="netflix">
     <h5 class="poppins-medium text-medium flex w-full mb-8">
       <svg
@@ -930,26 +1001,29 @@ const dibujarSeccionesPorGeneros = async () => {
       </svg>
     </button>
   </form>
-    <form
-      action=""
-      class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
-    >
-      <button
-        class="bg-purple-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-      >
-        Estado
-      </button>
-      <button
-        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-      >
-        Genero
-      </button>
-      <button
-        class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
-      >
-        Plataforma
-      </button>
-    </form>
+  <form
+  action=""
+  class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2 lg:justify-between"
+>
+  <button
+    class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    id="Estado_Filtro_Boton"
+  >
+    Estado
+  </button>
+  <button
+    class="bg-purple-300 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    id="Estado_Genero_Boton"
+  >
+    Genero
+  </button>
+  <button
+    class="bg-indigo-200 w-64 h-8 rounded-lg poppins-medium transition duration-200 ease-in-out transform hover:scale-105 text-xl"
+    id="Estado_Plataforma_Boton"
+  >
+    Plataforma
+  </button>
+</form>
     <form
       action=""
       class="flex flex-wrap mx-8 justify-center mt-2 text-center gap-2"
@@ -961,9 +1035,41 @@ const dibujarSeccionesPorGeneros = async () => {
         Crear
       </button>
     </form>
-    <section id="filtros-secciones"></section>`;
+    <section id="filtros-secciones" ></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
+  const Estado_Filtro_Boton = document.getElementById("Estado_Filtro_Boton");
+  Estado_Filtro_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorEstado();
+  });
+  const Estado_Plataforma_Boton = document.getElementById(
+    "Estado_Plataforma_Boton"
+  );
+  Estado_Plataforma_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorPlataforma();
+  });
+  const Estado_Genero_Boton = document.getElementById("Estado_Genero_Boton");
+  Estado_Genero_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorGeneros();
+  });
+  const boton_crear_recuros = document.getElementById("boton_crear_recuros");
 
+  boton_crear_recuros.addEventListener("click", (event) => {
+    event.preventDefault();
+    dialog_crear_recurso.classList.toggle("invisible", false);
+  });
+  const search_bar = document.getElementById("search_bar");
+  const search_bar_form = document.getElementById("search_bar_form");
+  search_bar.addEventListener("change", async () => {
+    filtros_secciones.innerHTML = ``;
+    filtros_secciones.classList = `mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4`;
+    AgregarGeneral(
+      await traerNombreRecurso(search_bar.value),
+      filtros_secciones
+    );
+  });
+  search_bar_form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
   filtros_secciones.innerHTML = `<section class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4" id="accion">
     <h5 class="poppins-medium text-medium flex w-full mb-8">
       <svg
@@ -1126,60 +1232,158 @@ const dibujarMovies = async () => {
   AgregarGeneral(await traerFormatoRecurso("Película"), filtros_secciones);
 };
 const dibujarSeries = async () => {
-  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones"></section>`;
+  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
   AgregarGeneral(await traerFormatoRecurso("Serie"), filtros_secciones);
 };
 const dibujarLibros = async () => {
-  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones"></section>`;
+  Todo_Y_Fitros.innerHTML = `<section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
   AgregarGeneral(await traerFormatoRecurso("Libro"), filtros_secciones);
 };
 
 const dibujarBusquedaPorNombre = async () => {
-    Todo_Y_Fitros.innerHTML = `<form id="search_bar_form" class="p-4 flex">
-    <input
-      class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
-      placeholder="  🔍︎  Búsqueda Por Nombre..."
-      type="text"
-      name="search_bar"
-      id="search_bar"
-    />
-    <button
-      class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+  Todo_Y_Fitros.innerHTML = `<form id="search_bar_form" class="p-4 flex">
+  <input
+    class="border-2 bg-gradient-to-r from-gray-100 to-red-50 from-80% w-full px-2 py-4 rounded-sm text-gray-400 poppins-regular placeholder:"
+    placeholder="  🔍︎  Búsqueda Por Nombre..."
+    type="text"
+    name="search_bar"
+    id="search_bar"
+  />
+  <button
+    class="p-4 rounded-r-lg bg-indigo-200 xl:display-invisible transition-all duration-200 xl:hidden"
+  >
+    <svg
+      class="w-8 h-8"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 448 512"
     >
-      <svg
-        class="w-8 h-8"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 448 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
-        />
-      </svg>
-    </button>
-  </form><section id="filtros-secciones"></section>`;
+      <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+      <path
+        d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+      />
+    </svg>
+  </button>
+</form><section id="filtros-secciones" class="mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4"></section>`;
   const filtros_secciones = document.getElementById("filtros-secciones");
   const search_bar = document.getElementById("search_bar");
   const search_bar_form = document.getElementById("search_bar_form");
-  search_bar.addEventListener("change", async()=>{
-    filtros_secciones.innerHTML = ``
-      AgregarGeneral(await traerNombreRecurso(search_bar.value), filtros_secciones);
-  })
-  search_bar_form.addEventListener("submit", (event)=>{
-    event.preventDefault()
-})
+  search_bar.addEventListener("change", async () => {
+    filtros_secciones.innerHTML = ``;
+    filtros_secciones.classList = `mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4`;
+    AgregarGeneral(
+      await traerNombreRecurso(search_bar.value),
+      filtros_secciones
+    );
+  });
+  search_bar_form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
 };
 
-//dibujarBusquedaPorNombre()
-
-//dibujarMovies()
-//dibujarSeries()
-//dibujarLibros()
-
-//dibujarSeccionesPorGeneros()
-
-//dibujarSeccionesPorPlataforma();
-
 //dibujarSeccionesPorEstado();
+
+const IncioDePag = () => {
+  const Bot_Home = document.getElementById("Bot_Home");
+  Bot_Home.addEventListener("click", () => {
+    dibujarSeccionesPorEstado();
+    const flecha_home = document.getElementById("flecha_home")
+    ActivarEstiloBoton(Bot_Home,flecha_home)
+});
+  const Estado_Filtro_Boton = document.getElementById("Estado_Filtro_Boton");
+  Estado_Filtro_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorEstado();
+  });
+
+  //dibujarSeccionesPorGeneros()
+
+  const Estado_Genero_Boton = document.getElementById("Estado_Genero_Boton");
+  Estado_Genero_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorGeneros();
+  });
+
+  //dibujarSeccionesPorPlataforma();
+
+  const Estado_Plataforma_Boton = document.getElementById(
+    "Estado_Plataforma_Boton"
+  );
+  Estado_Plataforma_Boton.addEventListener("click", () => {
+    dibujarSeccionesPorPlataforma();
+  });
+
+  //dibujarMovies()
+
+  const Bot_Movies = document.getElementById("Bot_Movies");
+  Bot_Movies.addEventListener("click", () => {
+      dibujarMovies();
+      const flecha_movie = document.getElementById("flecha_movie")
+    ActivarEstiloBoton(Bot_Movies,flecha_movie)
+  });
+
+  //dibujarLibros()
+
+  const Bot_books = document.getElementById("Bot_books");
+  Bot_books.addEventListener("click", () => {
+    dibujarLibros();
+    const flecha_book = document.getElementById("flecha_book")
+    ActivarEstiloBoton(Bot_books,flecha_book)
+  });
+
+  //dibujarSeries()
+
+  const Bot_series = document.getElementById("Bot_series");
+  Bot_series.addEventListener("click", () => {
+    dibujarSeries();
+    const flecha_series = document.getElementById("flecha_series")
+    ActivarEstiloBoton(Bot_series,flecha_series)
+  });
+
+  //dibujarBusquedaPorNombre()
+
+  dibujarSeccionesPorEstado();
+
+  const search_bar = document.getElementById("search_bar");
+  const search_bar_form = document.getElementById("search_bar_form");
+  search_bar.addEventListener("change", async () => {
+    filtros_secciones.innerHTML = ``;
+    filtros_secciones.classList = `mt-8 w-full pl-8 flex flex-wrap gap-x-4 gap-y-4`;
+    AgregarGeneral(
+      await traerNombreRecurso(search_bar.value),
+      filtros_secciones
+    );
+  });
+  search_bar_form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+};
+
+IncioDePag();
+
+//Estilos Botones
+
+const ActivarEstiloBoton = (elemento, flechaElemento)=>{
+    const Bot_Home = document.getElementById("Bot_Home")
+    Bot_Home.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`
+    const Bot_Movies = document.getElementById("Bot_Movies")
+    Bot_Movies.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`
+    const Bot_books = document.getElementById("Bot_books")
+    Bot_books.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`
+    const Bot_series = document.getElementById("Bot_series")
+    Bot_series.classList = `"middle none poppins-medium center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full text-gray-400 hover:bg-blue-200/40 active:bg-white/30 w-full flex items-center gap-4 px-4 pl-8 capitalize"`
+    const flecha_movie = document.getElementById("flecha_movie")
+    flecha_movie.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-400"
+    flecha_movie.classList.toggle("invisible", true)
+    const flecha_book = document.getElementById("flecha_book")
+    flecha_book.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-400"
+    flecha_book.classList.toggle("invisible", true)
+    const flecha_series = document.getElementById("flecha_series")
+    flecha_series.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-400"
+    flecha_series.classList.toggle("invisible", true)
+    const flecha_home = document.getElementById("flecha_home")
+    flecha_home.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-400"
+    flecha_home.classList.toggle("invisible", true)
+    elemento.classList = `justify-around none poppins-semibold font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-r-full bg-indigo-200 text-gray-800 shadow-md shadow-blue-200/20 hover:shadow-lg hover:shadow-blue-200/40 w-full flex items-center gap-4 pl-8 capitalize`
+    flechaElemento.classList.toggle("invisible", false)
+    flechaElemento.previousElementSibling.previousElementSibling.classList = "w-6 h-6 fill-gray-800"
+}
