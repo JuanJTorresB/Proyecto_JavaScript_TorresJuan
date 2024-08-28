@@ -265,7 +265,8 @@ const agregarFiltroEstadoEnProceso = (arr, section) => {
   })
   const boton_terminar_card = document.getElementById(`boton_terminar_card_${recursos.id}`)
   boton_terminar_card.addEventListener("click", ()=>{
-    let id = boton_terminar_card.value
+    idRecurso = boton_terminar_card.value
+    dialog_terminar_recurso.classList.toggle("invisible", false);
   })
   }
 }
@@ -478,24 +479,80 @@ const EditarRecursoEstadoRecurso = async(id, nuevo) => {
 
 // Terminar tareas
 
+const EditarRecursoFechaTerminacion = async(id, nuevo) => {
+  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
+    method: 'PUT',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({fecha_terminacion: nuevo})
+  })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+    console.error("Fecha de Terminación No Editada");
+  })
+  .then(task => {
+    console.log("Fecha de Terminación Editada");
+  })
+  .catch(error => {
+    console.error("Error al Editar Fecha de Terminación:", error);
+  });
+};
+
+const EditarRecursoValoracionFinal = async(id, nuevo) => {
+  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
+    method: 'PUT',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({valoracion_final: nuevo})
+  })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+    console.error("Valoración Final No Editada");
+  })
+  .then(task => {
+    console.log("Valoración Final Editada");
+  })
+  .catch(error => {
+    console.error("Error al Editar Valoración Final:", error);
+  });
+};
+
+const EditarRecursoResenia = async(id, nuevo) => {
+  fetch(`https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`, {
+    method: 'PUT',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({resenia: nuevo})
+  })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+    console.error("Reseña No Editada");
+  })
+  .then(task => {
+    console.log("Reseña Editada");
+  })
+  .catch(error => {
+    console.error("Error al Editar Reseña:", error);
+  });
+};
+
+
 const formTerminarRecurso = document.getElementById("formTerminarRecurso")
 
 const dialog_terminar_recurso = document.getElementById("dialog_terminar_recurso")
 
 formTerminarRecurso.addEventListener("submit", (event) => {
   event.preventDefault();
-  const form_nombre_recurso = document.getElementById("form_nombre_recurso_editar").value;
-  const url_recurso = document.getElementById("url_recurso_editar").value;
-  const formato_recurso = checkbox_seleccionados('input[name="formato_editar"]');
-  const generos_recurso = checkbox_seleccionados('input[name="generos_editar"]');
-  const plataforma_recurso = checkbox_seleccionados('input[name="Plataforma_Peli_Serie_editar"]');
-  const estado_recurso = checkbox_seleccionados('input[name="Estado_editar"]');
-  EditarRecursoNombreRecurso(idRecurso, form_nombre_recurso)
-  EditarRecursoUrlPortada(idRecurso, url_recurso)
-  EditarRecursoFormatoRecurso(idRecurso, formato_recurso)
-  EditarRecursoGenerosRecurso(idRecurso, generos_recurso)
-  EditarRecursoPlataformasRecurso(idRecurso, plataforma_recurso)
-  EditarRecursoEstadoRecurso(idRecurso, estado_recurso)
+  const fecha_terminación = document.getElementById("fecha-terminación").value;
+  const valoracion_final = document.getElementById("valoracion-final").value;
+  const Resenia = document.getElementById("Resenia").value;
+  EditarRecursoEstadoRecurso(idRecurso, ["Terminado"])
+  EditarRecursoFechaTerminacion(idRecurso, fecha_terminación)
+  EditarRecursoValoracionFinal(idRecurso, valoracion_final)
+  EditarRecursoResenia(idRecurso, Resenia)
   formTerminarRecurso.reset();
   dialog_terminar_recurso.classList.toggle("invisible", true);
 })
