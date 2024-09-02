@@ -2,6 +2,20 @@
 
 var IdUserActual;
 
+const reiniciarID = ()=>{
+  console.log(IdUserActual)
+  if (sessionStorage.getItem("credentials") !== "") {
+    IdUserActual = sessionStorage.getItem("credentials")
+    main.classList.toggle("hidden", false);
+    dashboard.classList.toggle("hidden", false);
+  } else if (localStorage.getItem("credentials") !== "") {
+    IdUserActual = localStorage.getItem("credentials")
+    main.classList.toggle("hidden", false);
+    dashboard.classList.toggle("hidden", false);
+  }
+  console.log(IdUserActual)
+}
+
 if (sessionStorage.getItem("credentials") !== "") {
   //Mostrar Pagina según Session ID
   main.classList.toggle("hidden", false);
@@ -15,7 +29,7 @@ if (sessionStorage.getItem("credentials") !== "") {
 }
 
 const addRecurso = async (recursos) => {
-  respuesta = await fetch(`${url}/users/1/recursos`, {
+  respuesta = await fetch(`${url}/users/${IdUserActual}/recursos`, {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(recursos),
@@ -98,6 +112,8 @@ formCrearRecurso.addEventListener("submit", async(event) => {
 });
 
 const traerRecursosEstadoEnProgreso = () => {
+  reiniciarID()
+  console.log(IdUserActual)
   let urlRecursos = new URL(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
   );
@@ -125,6 +141,7 @@ const traerRecursosEstadoEnProgreso = () => {
 var idRecurso;
 
 const traerEstadoRecurso = async(buscar) => {
+  reiniciarID()
   try {
     let urlRecursos = new URL(
       `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
@@ -151,6 +168,7 @@ const traerEstadoRecurso = async(buscar) => {
 };
 
 const traerPlataformaRecurso = async(buscar) => {
+  reiniciarID()
   try {
     let urlRecursos = new URL(
       `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
@@ -177,6 +195,7 @@ const traerPlataformaRecurso = async(buscar) => {
 };
 
 const traerFormatoGeneros = async(buscar) => {
+  reiniciarID()
   try {
     let urlRecursos = new URL(
       `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
@@ -204,6 +223,7 @@ const traerFormatoGeneros = async(buscar) => {
 
 
 const traerFormatoRecurso = async(buscar) => {
+  reiniciarID()
   try {
     let urlRecursos = new URL(
       `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
@@ -230,6 +250,7 @@ const traerFormatoRecurso = async(buscar) => {
 };
 
 const traerNombreRecurso = async(buscar) => {
+  reiniciarID()
   try {
     let urlRecursos = new URL(
       `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
@@ -258,6 +279,7 @@ const traerNombreRecurso = async(buscar) => {
 //Elinimar Racurso
 
 const EliminarRecurso = async (id) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {
@@ -311,6 +333,7 @@ formEditarRecurso.addEventListener("submit", (event) => {
 //Editar Recurso
 
 const EditarRecursoNombreRecurso = async (id, nuevo) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {
@@ -335,6 +358,7 @@ const EditarRecursoNombreRecurso = async (id, nuevo) => {
   };
 
 const EditarRecursoFormatoRecurso = async (id, nuevo) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {
@@ -357,6 +381,7 @@ const EditarRecursoFormatoRecurso = async (id, nuevo) => {
 };
 
 const EditarRecursoUrlPortada = async (id, nuevo) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {
@@ -380,6 +405,7 @@ const EditarRecursoUrlPortada = async (id, nuevo) => {
 };
 
 const EditarRecursoGenerosRecurso = async (id, nuevo) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {
@@ -403,6 +429,7 @@ const EditarRecursoGenerosRecurso = async (id, nuevo) => {
 };
 
 const EditarRecursoPlataformasRecurso = async (id, nuevo) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {
@@ -426,6 +453,7 @@ const EditarRecursoPlataformasRecurso = async (id, nuevo) => {
 };
 
 const EditarRecursoEstadoRecurso = async (id, nuevo) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {
@@ -451,6 +479,7 @@ const EditarRecursoEstadoRecurso = async (id, nuevo) => {
 // Terminar tareas
 
 const EditarRecursoFechaTerminacion = async (id, nuevo) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {
@@ -474,6 +503,7 @@ const EditarRecursoFechaTerminacion = async (id, nuevo) => {
 };
 
 const EditarRecursoValoracionFinal = async (id, nuevo) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {
@@ -497,6 +527,7 @@ const EditarRecursoValoracionFinal = async (id, nuevo) => {
 };
 
 const EditarRecursoResenia = async (id, nuevo) => {
+  reiniciarID()
   fetch(
     `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/${id}`,
     {

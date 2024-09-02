@@ -134,9 +134,15 @@ const mostrarRegistro = () => {
         if (remember_me_register.checked) {
           let id = await gmailRegisteredToId(email_register.value);
           localStorage.setItem("credentials", `${id}`);
+          IdUserActual = id
+          console.log("Id:")
+          console.log(idRecurso)
         } else {
           let id = await gmailRegisteredToId(email_register.value);
           sessionStorage.setItem("credentials", `${id}`);
+          IdUserActual = id
+          console.log("Id:")
+          console.log(idRecurso)
         }
       } else {
         alert("El Email ya esta Registrado");
@@ -296,7 +302,6 @@ const gmailRegisteredToId = async (userEmailParaId) => {
       return user.id;
     }
   }
-  return "-1";
 };
 
 const gmailRegisteredToPassword = async (userEmailParaPassword) => {
@@ -309,7 +314,6 @@ const gmailRegisteredToPassword = async (userEmailParaPassword) => {
       return user.contrasenia;
     }
   }
-  return "-1";
 };
 
 const registerUser = async (Correo, Password, Nombre, Apellidos) => {
