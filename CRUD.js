@@ -294,6 +294,7 @@ const EliminarRecurso = async (id) => {
     })
     .then((resultado) => {
       console.log("Card Eliminada");
+      location.reload()
     })
     .catch((error) => {
       console.error(error);
@@ -567,4 +568,13 @@ formTerminarRecurso.addEventListener("submit", (event) => {
   EditarRecursoResenia(idRecurso, Resenia);
   formTerminarRecurso.reset();
   dialog_terminar_recurso.classList.toggle("invisible", true);
+  location.reload()
 });
+
+const fecha_terminación = document.getElementById("fecha-terminación")
+
+const fechaToday = new Date().toISOString().split('T')[0]
+
+console.log(fechaToday)
+
+fecha_terminación.setAttribute("max", fechaToday)
