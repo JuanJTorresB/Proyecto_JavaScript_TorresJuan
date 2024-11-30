@@ -559,8 +559,6 @@ const dialog_terminar_recurso = document.getElementById(
 
 formTerminarRecurso.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log("valoracion_final")
-  console.log("Resenia")
   const fecha_terminación = document.getElementById("fecha-terminación").value;
   const valoracion_final = document.getElementById("valoracion-final").value;
   const Resenia = document.getElementById("Resenia").value;
@@ -569,7 +567,6 @@ formTerminarRecurso.addEventListener("submit", (event) => {
   EditarRecursoValoracionFinal(idRecurso, valoracion_final);
   EditarRecursoResenia(idRecurso, Resenia);
   formTerminarRecurso.reset();
-  console.log("hOLA: " + idRecurso)
   dialog_terminar_recurso.classList.toggle("invisible", true);
   location.reload;
 });

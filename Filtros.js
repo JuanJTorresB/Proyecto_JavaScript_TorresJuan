@@ -1477,7 +1477,6 @@ butMenuCerrar.addEventListener("click", () => {
 
 window.addEventListener("resize", () => {
   windowWidth = window.innerWidth;
-  console.log(windowWidth);
   if (windowWidth >= 1280) {
     menuAside.classList.toggle("-translate-x-80", true);
   }
