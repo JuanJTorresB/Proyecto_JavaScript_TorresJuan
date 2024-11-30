@@ -144,7 +144,7 @@ const traerEstadoRecurso = async(buscar) => {
   reiniciarID()
   try {
     let urlRecursos = new URL(
-      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
+      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/`
     );
     urlRecursos.searchParams.append("estado_recurso", buscar);
 
@@ -171,7 +171,7 @@ const traerPlataformaRecurso = async(buscar) => {
   reiniciarID()
   try {
     let urlRecursos = new URL(
-      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
+      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/`
     );
     urlRecursos.searchParams.append("plataformas_recurso", buscar);
 
@@ -198,7 +198,7 @@ const traerFormatoGeneros = async(buscar) => {
   reiniciarID()
   try {
     let urlRecursos = new URL(
-      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
+      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/`
     );
     urlRecursos.searchParams.append("generos_recurso", buscar);
 
@@ -226,7 +226,7 @@ const traerFormatoRecurso = async(buscar) => {
   reiniciarID()
   try {
     let urlRecursos = new URL(
-      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
+      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/`
     );
     urlRecursos.searchParams.append("formato_recurso", buscar);
 
@@ -253,7 +253,7 @@ const traerNombreRecurso = async(buscar) => {
   reiniciarID()
   try {
     let urlRecursos = new URL(
-      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos`
+      `https://66caa49f59f4350f064f915e.mockapi.io/StoryStack/users/${IdUserActual}/recursos/`
     );
     urlRecursos.searchParams.append("nombre_recurso", buscar);
 
@@ -534,7 +534,7 @@ const EditarRecursoResenia = async (id, nuevo) => {
     {
       method: "PUT",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ resenia: nuevo }),
+      body: JSON.stringify({resenia: nuevo}),
     }
   )
     .then((res) => {
@@ -559,16 +559,19 @@ const dialog_terminar_recurso = document.getElementById(
 
 formTerminarRecurso.addEventListener("submit", (event) => {
   event.preventDefault();
+  console.log("valoracion_final")
+  console.log("Resenia")
   const fecha_terminación = document.getElementById("fecha-terminación").value;
   const valoracion_final = document.getElementById("valoracion-final").value;
   const Resenia = document.getElementById("Resenia").value;
-  EditarRecursoEstadoRecurso(idRecurso, ["Terminado"]);
+  EditarRecursoEstadoRecurso(idRecurso, "Terminado");
   EditarRecursoFechaTerminacion(idRecurso, fecha_terminación);
   EditarRecursoValoracionFinal(idRecurso, valoracion_final);
   EditarRecursoResenia(idRecurso, Resenia);
   formTerminarRecurso.reset();
+  console.log("hOLA: " + idRecurso)
   dialog_terminar_recurso.classList.toggle("invisible", true);
-  location.reload()
+  location.reload;
 });
 
 const fecha_terminación = document.getElementById("fecha-terminación")
